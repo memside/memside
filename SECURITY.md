@@ -20,4 +20,4 @@ For hosted Memside services, useful report areas include authentication behavior
 
 Please do not run destructive tests, high-volume scans, spam, social engineering, or tests that try to access data belonging to other users without permission. If a test could affect service availability or user data, contact us first.
 
-We will acknowledge good-faith security reports as quickly as practical.
+We will acknowledge good-faith security reports as quickly as possible.
