@@ -22,6 +22,7 @@ Start here:
 - [Connect AI clients](docs/clients/README.md)
 - [Install in VS Code](docs/clients/vscode.md)
 - [Use Memside with API keys](docs/api-keys.md)
+- [MCP Registry metadata](docs/mcp-registry.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
 ## MCP Server Setup
@@ -59,6 +60,22 @@ VS Code and GitHub Copilot can use a workspace `.vscode/mcp.json` file:
 Keep real API keys out of shared files. Use local user-level configuration or secret storage when the config is shared with a team.
 
 Detailed setup guides are available for [VS Code](docs/clients/vscode.md), [GitHub Copilot](docs/clients/github-copilot.md), [ChatGPT](docs/clients/chatgpt.md), [Grok](docs/clients/grok.md), [Claude Code](docs/clients/claude-code.md), [Cursor](docs/clients/cursor.md), [Codex](docs/clients/codex.md), [Antigravity](docs/clients/antigravity.md), and [opencode](docs/clients/opencode.md).
+
+## MCP Registry
+
+This repository includes `server.json` for the official MCP Registry. It describes Memside as a hosted remote MCP server using Streamable HTTP at:
+
+```text
+https://api.memside.com/mcp/
+```
+
+The registry entry is published under:
+
+```text
+io.github.memside/memside
+```
+
+See [MCP Registry metadata](docs/mcp-registry.md) for validation and smoke-test notes.
 
 ## What You Can Do
 
@@ -118,12 +135,6 @@ Security reports should follow [SECURITY.md](SECURITY.md).
 
 Copyright (c) 2026 Memside. All rights reserved.
 
-This repository contains public documentation, examples, and integration guidance for Memside.
+This repository is public documentation, not open-source application code. See [LICENSE.md](LICENSE.md) for the repository terms.
 
-You may view, reference, and link to this repository for learning about Memside and its integrations.
-
-You may not copy, modify, redistribute, sublicense, publish, sell, or use substantial portions of this repository's contents for another product, service, documentation site, marketplace listing, or commercial purpose without written permission from Memside.
-
-Memside, PMX, and related names, logos, product concepts, documentation, and branding remain the property of their respective owners.
-
-This repository does not grant any license to Memside's application source code, backend services, APIs, trademarks, product designs, or proprietary systems.
+Memside, PMX, and related names, product concepts, documentation, and branding remain the property of their respective owners.

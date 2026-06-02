@@ -21,18 +21,15 @@ During MCP OAuth setup, Memside may send you through a normal account login step
 
 Do not share OAuth codes, access tokens, refresh tokens, or API keys. If you think a token or key was exposed, remove the connector or revoke the key from Memside settings.
 
-## Operator Note
+## Discovery Checks
 
-For the hosted production service, Google login used by the MCP OAuth flow must allow this callback:
-
-```text
-https://api.memside.com/oauth/callback
-```
-
-The normal web login flow also uses the auth-service callback:
+If a client has trouble starting OAuth, first check that the public discovery documents are reachable:
 
 ```text
-https://auth.memside.com/api/auth/callback/google
+https://api.memside.com/.well-known/oauth-protected-resource
+https://api.memside.com/.well-known/oauth-authorization-server
 ```
 
-Both callbacks are needed because website login and MCP connector login use different public domains.
+Both should return JSON from the Memside API domain. If either URL fails, the connector will usually fail before the user reaches the login step.
+
+For user-facing setup errors, see [Troubleshooting](troubleshooting.md).

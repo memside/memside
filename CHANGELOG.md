@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-06-02, metadata and licensing cleanup
+
+Added a restricted public repository license for Memside-owned documentation, examples, and registry metadata.
+
+Added MCP Registry validation notes, endpoint smoke-test guidance, and a publish-workflow dry run before registry submission.
+
+Updated `server.json` metadata to include the public Memside website and bump the registry metadata version to `1.0.2`.
+
+Simplified public OAuth troubleshooting so user-facing docs stay focused on setup errors and support details.
+
 ## 2026-06-02
 
 Initial public repository setup for Memside.

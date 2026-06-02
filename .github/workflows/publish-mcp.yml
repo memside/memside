@@ -21,6 +21,29 @@ jobs:
         run: |
           curl -L "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
 
+      - name: Validate MCP Registry metadata
+        run: |
+          python -m pip install jsonschema
+          curl -L "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json" -o server.schema.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft7Validator, FormatChecker
+
+          schema = json.loads(Path("server.schema.json").read_text(encoding="utf-8"))
+          data = json.loads(Path("server.json").read_text(encoding="utf-8"))
+
+          Draft7Validator.check_schema(schema)
+          validator = Draft7Validator(schema, format_checker=FormatChecker())
+          errors = sorted(validator.iter_errors(data), key=lambda error: error.path)
+          if errors:
+              for error in errors:
+                  path = ".".join(str(part) for part in error.path) or "<root>"
+                  print(f"{path}: {error.message}")
+              raise SystemExit(1)
+          print("server.json schema validation OK")
+          PY
+
       - name: Authenticate to MCP Registry
         run: ./mcp-publisher login github-oidc
 

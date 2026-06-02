@@ -6,23 +6,19 @@ This page covers common setup issues for Memside MCP and API-key access.
 
 This usually means the OAuth request was created without a Google client ID. For the hosted Memside service, this is a server configuration issue, not something the user can fix locally.
 
-If you see this while setting up a ChatGPT MCP connector, remove the connector and try again after the issue is fixed. If it still happens, contact support with the time of the failed attempt.
+If you see this while setting up a ChatGPT MCP connector, remove the connector and try again after the issue is fixed. If it still happens, contact support with the client name and time of the failed attempt.
 
 ## Google Shows `redirect_uri_mismatch`
 
-This means Google rejected the callback URL used during OAuth. For the hosted MCP connector flow, the required callback is:
+This means Google rejected the callback URL used during OAuth. For hosted Memside MCP setup, this is usually a Memside configuration issue.
+
+If the error screen shows a redirect URL, include it in your support request. The expected hosted MCP callback is:
 
 ```text
 https://api.memside.com/oauth/callback
 ```
 
-For normal website login, the Google callback is:
-
-```text
-https://auth.memside.com/api/auth/callback/google
-```
-
-Both may be needed in the Google OAuth app because the website and MCP connector flows use different domains.
+Do not post OAuth codes, tokens, API keys, or screenshots with private account data in a public issue.
 
 ## Connector Setup Still Uses an Old Failed State
 

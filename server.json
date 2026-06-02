@@ -7,7 +7,8 @@
     "url": "https://github.com/memside/memside",
     "source": "github"
   },
-  "version": "1.0.1",
+  "websiteUrl": "https://www.memside.com",
+  "version": "1.0.2",
   "remotes": [
     {
       "type": "streamable-http",
