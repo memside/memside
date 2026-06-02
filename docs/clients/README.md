@@ -16,6 +16,7 @@ Client support changes quickly. The pages in this section give practical setup n
 - [Grok](grok.md)
 - [Claude](claude.md)
 - [Claude Code](claude-code.md)
+- [VS Code](vscode.md)
 - [GitHub Copilot](github-copilot.md)
 - [Cursor](cursor.md)
 - [Codex](codex.md)

@@ -20,6 +20,7 @@ Start here:
 - [Token savings and context reuse](docs/token-savings.md)
 - [Memory types and sensitivity](docs/memory-types.md)
 - [Connect AI clients](docs/clients/README.md)
+- [Install in VS Code](docs/clients/vscode.md)
 - [Use Memside with API keys](docs/api-keys.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
@@ -57,6 +58,7 @@ The JavaScript and Python examples use normal HTTP requests against public Memsi
 This repo contains:
 
 - setup guides for MCP clients
+- MCP Registry metadata
 - technical product capability docs
 - API-key usage examples
 - public troubleshooting notes
@@ -76,6 +78,16 @@ For support, contact [support@memside.com](mailto:support@memside.com) or use th
 
 Security reports should follow [SECURITY.md](SECURITY.md).
 
-## License
+## Copyright and Use
 
-This public repository is licensed under the Apache License 2.0. See [LICENSE](LICENSE).
+Copyright (c) 2026 Memside. All rights reserved.
+
+This repository contains public documentation, examples, and integration guidance for Memside.
+
+You may view, reference, and link to this repository for learning about Memside and its integrations.
+
+You may not copy, modify, redistribute, sublicense, publish, sell, or use substantial portions of this repository's contents for another product, service, documentation site, marketplace listing, or commercial purpose without written permission from Memside.
+
+Memside, PMX, and related names, logos, product concepts, documentation, and branding remain the property of their respective owners.
+
+This repository does not grant any license to Memside's application source code, backend services, APIs, trademarks, product designs, or proprietary systems.

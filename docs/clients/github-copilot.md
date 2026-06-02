@@ -10,6 +10,8 @@ https://api.memside.com/mcp/
 
 ## VS Code Setup
 
+GitHub Copilot in VS Code uses VS Code MCP server configuration. For the full setup guide, see [VS Code](vscode.md).
+
 The simplest setup is to add Memside to your workspace MCP config:
 
 1. Open your project in VS Code.
