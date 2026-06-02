@@ -1,0 +1,99 @@
+name: Validate Public Docs
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Validate server.json
+        run: |
+          python -m pip install jsonschema
+          curl -L "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json" -o server.schema.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft7Validator, FormatChecker
+
+          schema = json.loads(Path("server.schema.json").read_text(encoding="utf-8"))
+          data = json.loads(Path("server.json").read_text(encoding="utf-8"))
+
+          Draft7Validator.check_schema(schema)
+          validator = Draft7Validator(schema, format_checker=FormatChecker())
+          errors = sorted(validator.iter_errors(data), key=lambda error: error.path)
+          if errors:
+              for error in errors:
+                  path = ".".join(str(part) for part in error.path) or "<root>"
+                  print(f"{path}: {error.message}")
+              raise SystemExit(1)
+          print("server.json schema validation OK")
+          PY
+
+      - name: Check relative Markdown links
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          root = Path(".").resolve()
+          broken = []
+          link_re = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+
+          for path in root.rglob("*.md"):
+              if ".git" in path.parts:
+                  continue
+              text = path.read_text(encoding="utf-8")
+              for match in link_re.finditer(text):
+                  target = match.group(1)
+                  if target.startswith(("http://", "https://", "mailto:", "#")):
+                      continue
+                  clean = target.split("#", 1)[0]
+                  if not clean:
+                      continue
+                  if not (path.parent / clean).resolve().exists():
+                      broken.append(f"{path.relative_to(root)} -> {target}")
+
+          if broken:
+              print("Broken relative Markdown links:")
+              print("\n".join(broken))
+              raise SystemExit(1)
+
+          print("Relative Markdown links OK")
+          PY
+
+      - name: Scan for likely committed API keys
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          key_re = re.compile(r"mem_sk_(?!your|key|example)[A-Za-z0-9_=-]{16,}")
+          findings = []
+
+          for path in Path(".").rglob("*"):
+              if ".git" in path.parts or path.is_dir():
+                  continue
+              if path.suffix.lower() not in {".md", ".json", ".js", ".mjs", ".yml", ".yaml", ".txt"}:
+                  continue
+              text = path.read_text(encoding="utf-8", errors="ignore")
+              for match in key_re.finditer(text):
+                  findings.append(f"{path}:{match.start()}")
+
+          if findings:
+              print("Possible real Memside API keys found:")
+              print("\n".join(findings))
+              raise SystemExit(1)
+
+          print("No likely real Memside API keys found")
+          PY

@@ -14,7 +14,19 @@ If Memside is shown in the MCP Registry or VS Code MCP server gallery, use the I
 
 After installation, open Copilot Chat, switch to Agent mode, and check the tools menu to confirm Memside tools are available.
 
-## Workspace Setup
+The official MCP Registry API can show Memside before VS Code gallery search shows it. If gallery search does not find Memside yet, use manifest install or manual config.
+
+## Install From Manifest
+
+If VS Code supports manifest install, use the raw `server.json` URL:
+
+```text
+https://raw.githubusercontent.com/memside/memside/main/server.json
+```
+
+After installation, run `MCP: List Servers`, select `memside`, and start or restart it.
+
+## Manual Workspace Setup
 
 The direct setup path is to add Memside to your workspace MCP config:
 
@@ -29,12 +41,20 @@ Use this example:
 
 ```json
 {
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "memside-api-key",
+      "description": "Memside API key",
+      "password": true
+    }
+  ],
   "servers": {
     "memside": {
       "type": "http",
       "url": "https://api.memside.com/mcp/",
       "headers": {
-        "Authorization": "Bearer mem_sk_your_memside_api_key"
+        "Authorization": "Bearer ${input:memside-api-key}"
       }
     }
   }
@@ -49,6 +69,26 @@ If you want Memside available across projects, open the Command Palette and use 
 
 Avoid hardcoding real API keys in shared files. For team workspaces, use local user configuration or VS Code input variables instead of committing secrets.
 
+## Expected Success Signals
+
+After setup:
+
+1. Run `MCP: List Servers`.
+2. Select `memside`.
+3. Start or restart the server.
+4. Confirm the server state becomes running.
+5. Confirm tools are discovered.
+
+Expected output includes lines similar to:
+
+```text
+Starting server memside
+Connection state: Running
+Discovered tools
+```
+
+If VS Code warns that a tool has no description, update Memside or contact support with the warning text. Tool descriptions help agents decide when to call tools.
+
 ## Suggested Use
 
 Ask Copilot Chat to load Memside context before it starts changing code.
@@ -62,3 +102,11 @@ Use Memside to fetch the current repository checkpoint and operating rules befor
 ## Notes
 
 Some GitHub Copilot plans and organizations can enable, restrict, or disable MCP usage through policy. If Memside tools do not appear after setup, check your VS Code version, Copilot extension version, workspace trust state, MCP server status, and organization policy.
+
+If the registry or gallery does not show Memside, check the official MCP Registry API:
+
+```text
+https://registry.modelcontextprotocol.io/v0.1/servers?search=memside
+```
+
+If the API shows Memside but VS Code does not, use manual config and retry gallery search later.

@@ -1,0 +1,13 @@
+{
+  "name": "memside-javascript-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "startup": "node startup.mjs",
+    "search": "node search.mjs",
+    "create-memory": "node create-memory.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

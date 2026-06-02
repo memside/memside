@@ -10,8 +10,11 @@ Use OAuth when the client supports remote MCP OAuth. Use API-key bearer authenti
 
 Client support changes quickly. The pages in this section give practical setup notes for common tools, but always compare them with the current client documentation if a UI or config format has changed.
 
+If a client gallery does not show Memside yet, use the hosted MCP URL directly. Gallery indexing can lag the official MCP Registry API.
+
 ## Client Guides
 
+- [Client support matrix](../client-support.md)
 - [ChatGPT](chatgpt.md)
 - [Grok](grok.md)
 - [Claude](claude.md)

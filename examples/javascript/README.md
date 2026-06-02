@@ -1,39 +1,51 @@
 # JavaScript Examples
 
-These examples use the built-in `fetch` API against the public Memside API.
+These examples use the built-in Node `fetch` API against the public Memside API.
 
-```js
-const apiKey = process.env.MEMSIDE_API_KEY;
+Requirements:
 
-async function memside(path, options = {}) {
-  const response = await fetch(`https://api.memside.com${path}`, {
-    ...options,
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-      ...(options.headers || {}),
-    },
-  });
+- Node 20 or newer
+- a Memside API key
 
-  if (!response.ok) {
-    throw new Error(`Memside request failed: ${response.status}`);
-  }
+Set your API key first.
 
-  return response.json();
-}
+macOS or Linux:
 
-const startup = await memside("/context/startup");
-console.log(startup);
-
-const created = await memside("/memories", {
-  method: "POST",
-  body: JSON.stringify({
-    text: "Launch note\nMemside JavaScript example created a memory.",
-    type: "note",
-    sensitivity: "private",
-    tags: ["example", "javascript"],
-  }),
-});
-
-console.log(created);
+```bash
+export MEMSIDE_API_KEY="mem_sk_your_key_here"
 ```
+
+Windows PowerShell:
+
+```powershell
+$env:MEMSIDE_API_KEY = "mem_sk_your_key_here"
+```
+
+## Run
+
+```bash
+npm run startup
+```
+
+Search memories:
+
+```bash
+npm run search -- launch
+```
+
+Create a memory:
+
+```bash
+npm run create-memory
+```
+
+The create-memory example writes to your Memside account. Read `create-memory.mjs` before running it.
+
+## Files
+
+- `memside-client.mjs`: small shared API helper
+- `startup.mjs`: calls `GET /context/startup`
+- `search.mjs`: calls `GET /memories/search`
+- `create-memory.mjs`: calls `POST /memories`
+
+These examples are intentionally small. They are not a full SDK.

@@ -16,14 +16,43 @@ If your AI tool supports OAuth for MCP, choose OAuth during setup and sign in wi
 
 Start here:
 
+- [Developer quickstart](docs/developer-quickstart.md)
 - [Capabilities](docs/capabilities.md)
 - [Token savings and context reuse](docs/token-savings.md)
 - [Memory types and sensitivity](docs/memory-types.md)
 - [Connect AI clients](docs/clients/README.md)
+- [Client support matrix](docs/client-support.md)
 - [Install in VS Code](docs/clients/vscode.md)
 - [Use Memside with API keys](docs/api-keys.md)
+- [Public API reference](docs/public-api.md)
 - [MCP Registry metadata](docs/mcp-registry.md)
 - [Troubleshooting](docs/troubleshooting.md)
+
+## Developer Quickstart
+
+Use the path that matches your tool.
+
+| Goal | Use | Start here |
+| --- | --- | --- |
+| Connect ChatGPT, Grok, Claude, or another hosted client | OAuth MCP | [Client guides](docs/clients/README.md) |
+| Connect VS Code, Copilot, Cursor, Claude Code, Codex, or a local MCP client | Bearer-header MCP | [VS Code guide](docs/clients/vscode.md) |
+| Call Memside from scripts or automation | API key | [API keys](docs/api-keys.md) |
+
+For a direct API smoke test, create a Memside API key and run:
+
+```bash
+curl https://api.memside.com/context/startup \
+  -H "Authorization: Bearer mem_sk_your_key_here"
+```
+
+For a runnable JavaScript example:
+
+```bash
+cd examples/javascript
+npm run startup
+```
+
+Set `MEMSIDE_API_KEY` before running examples. See [Developer quickstart](docs/developer-quickstart.md) for the full setup.
 
 ## MCP Server Setup
 
@@ -114,6 +143,7 @@ This repo contains:
 - MCP Registry metadata
 - technical product capability docs
 - API-key usage examples
+- developer quickstart and runnable examples
 - public troubleshooting notes
 - security and support information
 - public changelog entries

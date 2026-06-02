@@ -46,3 +46,5 @@ curl https://api.memside.com/context/startup \
 ```
 
 See the examples folder for more.
+
+For route details, response shapes, and app-only boundaries, see [Public API Reference](public-api.md).
