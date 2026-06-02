@@ -12,7 +12,7 @@ Please include the affected URL or feature, a clear description of the issue, an
 
 ## Public Scope
 
-This public repository contains integration documentation and examples. The production application, infrastructure configuration, secrets, private PMX internals, and deployment notes are not part of this repo.
+This public repository contains integration documentation and examples. The production application, infrastructure configuration, secrets, and deployment notes are not part of this repo.
 
 For hosted Memside services, useful report areas include authentication behavior, MCP connection behavior, API-key handling, cross-user access checks, and private attachment access.
 

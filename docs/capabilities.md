@@ -6,7 +6,7 @@ The product is centered on reusable context. A memory can be a project note, a d
 
 ## Cross-AI Continuity
 
-Memside helps you carry context between ChatGPT, Claude, Grok, Codex, Cursor, Antigravity, opencode, and other MCP-capable tools. The goal is not to replace those tools. The goal is to give them a shared continuity layer so each one can pick up the right context when you ask.
+Memside helps you carry context between ChatGPT, Claude, Grok, GitHub Copilot, Codex, Cursor, Antigravity, opencode, and other MCP-capable tools. The goal is not to replace those tools. The goal is to give them a shared continuity layer so each one can pick up the right context when you ask.
 
 This matters when a project spans multiple assistants. You may use ChatGPT for planning, Claude for writing, Cursor for code, and Codex for implementation. Without a shared memory layer, each tool starts with a partial view. With Memside, you can store the stable context once and let each connected tool retrieve the pieces it needs.
 

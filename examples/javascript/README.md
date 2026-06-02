@@ -1,6 +1,6 @@
 # JavaScript Examples
 
-These examples use the built-in `fetch` API. A small Memside SDK is planned for a later phase, but the direct API is usable today.
+These examples use the built-in `fetch` API against the public Memside API.
 
 ```js
 const apiKey = process.env.MEMSIDE_API_KEY;

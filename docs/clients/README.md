@@ -14,7 +14,9 @@ Client support changes quickly. The pages in this section give practical setup n
 
 - [ChatGPT](chatgpt.md)
 - [Grok](grok.md)
-- [Claude and Claude Code](claude.md)
+- [Claude](claude.md)
+- [Claude Code](claude-code.md)
+- [GitHub Copilot](github-copilot.md)
 - [Cursor](cursor.md)
 - [Codex](codex.md)
 - [Google Antigravity](antigravity.md)

@@ -27,6 +27,26 @@ If your Codex version uses a TOML config file instead, add Memside under the MCP
 
 Restart Codex after saving the server if the Memside tools do not appear immediately.
 
+## UI Setup
+
+If your Codex build uses an MCP server form, fill it like this:
+
+- Command to launch: `npx`
+- Arguments:
+  - `-y`
+  - `mcp-remote`
+  - `https://api.memside.com/mcp/`
+  - `--header`
+  - `Authorization: Bearer mem_sk_your_memside_api_key`
+- Environment variables: leave empty unless your Codex build specifically requires them
+- Environment variable passthrough: leave empty
+- Working directory on Windows: `C:\Users\<your-user>\.codex`
+
+Shared config locations:
+
+- Windows: `C:\Users\<your-user>\.codex\config.toml`
+- macOS: `~/.codex/config.toml`
+
 ## Suggested Use
 
 Codex is useful for implementation and review work. Memside can give Codex the project's current operating rules, checkpoint, and relevant memories before it edits files.

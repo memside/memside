@@ -12,17 +12,29 @@ https://api.memside.com/mcp/
 
 Use Cursor's MCP settings or `mcp.json` flow and add Memside as a remote server. The exact UI can change, but the important value is the Memside MCP URL.
 
-Typical shape:
+Project config example:
 
 ```json
 {
   "mcpServers": {
     "memside": {
-      "url": "https://api.memside.com/mcp/"
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://api.memside.com/mcp/",
+        "--header",
+        "Authorization: Bearer mem_sk_your_memside_api_key"
+      ]
     }
   }
 }
 ```
+
+Common config locations:
+
+- Project config: `.cursor/mcp.json`
+- Global config: `~/.cursor/mcp.json`
 
 If Cursor starts an OAuth flow, sign in with your Memside account. If your Cursor version expects headers instead of OAuth, use a Memside API key as a bearer token only if the client supports secure header configuration.
 

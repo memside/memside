@@ -12,25 +12,34 @@ https://api.memside.com/mcp/
 
 If your opencode version supports OAuth for remote MCP servers, configure Memside as a remote server and complete the OAuth flow.
 
-If your version supports remote servers with headers but not OAuth, create a Memside API key and pass it as a bearer token through a secure environment variable.
+If your version supports remote servers with headers but not OAuth, create a Memside API key and pass it as a bearer token.
 
-Example shape:
+Config example:
 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
     "memside": {
-      "type": "remote",
-      "url": "https://api.memside.com/mcp/",
-      "headers": {
-        "Authorization": "Bearer {env:MEMSIDE_API_KEY}"
-      },
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://api.memside.com/mcp/",
+        "--header",
+        "Authorization: Bearer mem_sk_your_memside_api_key"
+      ],
       "enabled": true
     }
   }
 }
 ```
+
+Common config file locations:
+
+- Windows: `C:\Users\<your-user>\.config\opencode\opencode.json`
+- macOS: `~/.config/opencode/opencode.json`
 
 ## Suggested Use
 
