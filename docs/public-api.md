@@ -77,16 +77,7 @@ Availability can be narrower than the app UI. If a route returns an access error
 
 ## App-Only Surfaces
 
-These surfaces are intentionally not general API-key routes:
-
-- account settings
-- billing or subscription management
-- password and session management
-- private attachment downloads
-- assistant chat internals
-- audit views
-- admin or operations endpoints
-- deployment or infrastructure configuration
+The public API-key surface is intentionally smaller than the Memside app. Account management, sensitive app-session flows, private file access, billing, admin, and other non-public product surfaces are not general API-key routes.
 
 ## Memory Sensitivity
 
@@ -102,5 +93,5 @@ If an API request fails:
 - confirm the key starts with `mem_sk_`
 - confirm the route supports API-key access
 - avoid query-string keys
-- check whether the memory is secret or belongs to another user
+- check whether the memory is outside the API-key access boundary
 - include the client name, route, error text, and approximate time when contacting support

@@ -167,4 +167,4 @@ Copyright (c) 2026 Memside. All rights reserved.
 
 This repository is public documentation, not open-source application code. See [LICENSE.md](LICENSE.md) for the repository terms.
 
-Memside, PMX, and related names, product concepts, documentation, and branding remain the property of their respective owners.
+Memside and related names, product concepts, documentation, and branding remain the property of their respective owners.

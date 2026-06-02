@@ -2,7 +2,9 @@
 
 ## 2026-06-02, developer-friendly public repo pass
 
-Added a developer quickstart, public API reference, runnable JavaScript examples, VS Code fallback setup notes, public issue templates, and a lightweight docs validation workflow.
+Added a developer quickstart, public API reference, runnable JavaScript examples, VS Code setup notes, public issue templates, and a lightweight docs validation workflow.
+
+Improved API-key guidance so developers can more clearly understand supported routes, access boundaries, and safe setup practices.
 
 ## 2026-06-02, metadata and licensing cleanup
 

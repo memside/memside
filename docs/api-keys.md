@@ -36,7 +36,7 @@ GET /context/resume
 GET /context/workspace-profile
 ```
 
-Some app-only routes are not available to API-key callers. Settings, account management, attachment download, assistant routes, bundles, and audit views remain session-app surfaces.
+Some app-only routes are not available to API-key callers. Account management, sensitive app-session flows, private file access, billing, admin, and other non-public product surfaces remain outside the general API-key boundary.
 
 ## Example
 

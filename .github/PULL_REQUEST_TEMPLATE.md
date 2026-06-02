@@ -6,7 +6,7 @@ Describe what changed and why.
 
 - [ ] No secrets, tokens, or private account data
 - [ ] No private Memside source or deployment details
-- [ ] No private PMX internals
+- [ ] No private product schemas or internals
 - [ ] Examples use public API surfaces only
 
 ## Notes
