@@ -16,8 +16,10 @@ If your AI tool supports OAuth for MCP, choose OAuth during setup and sign in wi
 
 Start here:
 
-- [Connect ChatGPT with MCP](docs/chatgpt-mcp.md)
-- [Connect Claude and other MCP clients](docs/claude-mcp.md)
+- [Capabilities](docs/capabilities.md)
+- [Token savings and context reuse](docs/token-savings.md)
+- [Memory types and sensitivity](docs/memory-types.md)
+- [Connect AI clients](docs/clients/README.md)
 - [Use Memside with API keys](docs/api-keys.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
@@ -28,6 +30,17 @@ With Memside connected, an AI tool can search your saved memories, fetch specifi
 This is useful when you want to move a project between ChatGPT, Claude, local coding tools, or future MCP-compatible clients. Memside can help the next AI understand what you are building, what decisions were already made, what rules it should follow, and what the next step is.
 
 Memside keeps the normal product boundary intact. Private user data is scoped to the signed-in user, secret memories are excluded from AI-facing MCP and API-key flows, and destructive actions require stronger confirmation.
+
+## Key Features
+
+Memside is designed around continuity, selective context retrieval, and user control. The core features are:
+
+- [Startup and resume context](docs/token-savings.md) for compact handoffs.
+- [Operating Rules](docs/operating-rules.md) for durable behavior guidance.
+- [User AI Profile](docs/user-ai-profile.md) for personal working preferences.
+- [AI Skills](docs/ai-skills.md) for reusable instruction packs.
+- [Public, private, and secret memories](docs/memory-types.md) for practical data boundaries.
+- [MCP and API-key access](docs/clients/README.md) for connecting multiple AI clients.
 
 ## API Examples
 
@@ -44,6 +57,7 @@ The JavaScript and Python examples use normal HTTP requests. A small SDK is plan
 This repo contains:
 
 - setup guides for MCP clients
+- technical product capability docs
 - API-key usage examples
 - public troubleshooting notes
 - security and support information
