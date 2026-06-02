@@ -24,6 +24,42 @@ Start here:
 - [Use Memside with API keys](docs/api-keys.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
+## MCP Server Setup
+
+Use this hosted MCP server URL in clients that support remote MCP:
+
+```text
+https://api.memside.com/mcp/
+```
+
+For ChatGPT, Grok, Claude, and other clients that offer OAuth during MCP setup, choose OAuth and sign in with your Memside account.
+
+For clients that use bearer headers, create a Memside API key and pass it as:
+
+```text
+Authorization: Bearer mem_sk_your_memside_api_key
+```
+
+VS Code and GitHub Copilot can use a workspace `.vscode/mcp.json` file:
+
+```json
+{
+  "servers": {
+    "memside": {
+      "type": "http",
+      "url": "https://api.memside.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer mem_sk_your_memside_api_key"
+      }
+    }
+  }
+}
+```
+
+Keep real API keys out of shared files. Use local user-level configuration or secret storage when the config is shared with a team.
+
+Detailed setup guides are available for [VS Code](docs/clients/vscode.md), [GitHub Copilot](docs/clients/github-copilot.md), [ChatGPT](docs/clients/chatgpt.md), [Grok](docs/clients/grok.md), [Claude Code](docs/clients/claude-code.md), [Cursor](docs/clients/cursor.md), [Codex](docs/clients/codex.md), [Antigravity](docs/clients/antigravity.md), and [opencode](docs/clients/opencode.md).
+
 ## What You Can Do
 
 With Memside connected, an AI tool can search your saved memories, fetch specific context, create new memories after you approve, update checkpoints, and build compact startup or resume packets. The goal is to keep useful context portable without turning every AI conversation into a long manual setup step.
