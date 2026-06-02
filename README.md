@@ -1,12 +1,12 @@
 # Memside
 
-Memside is a personal memory hub for people who work across AI tools, devices, and projects. It gives you a place to save reusable context, decisions, operating rules, project notes, and checkpoints so you do not have to rebuild the same context in every chat.
+Memside is an AI continuity and memory hub for people who work across ChatGPT, Claude, developer tools, browsers, and different devices. It gives you a private place to save reusable context, decisions, operating rules, project notes, and checkpoints so you can move from one AI to another without rebuilding the same background every time.
 
-This repository is the public home for Memside integration docs, examples, support information, and future SDK work. It is not a mirror of the private production application source.
+Use Memside when you want your AI context to survive beyond one chat window. A connected AI tool can retrieve the right memory, continue a project from a checkpoint, follow your saved working preferences, or create new durable context after you approve it. This repository is the public home for Memside integration docs, examples, support information, and future SDK work. It is not a mirror of the private production application source.
 
 ## Connect Memside
 
-Memside supports hosted MCP access for AI tools that can connect to remote MCP servers.
+Memside supports hosted MCP access for AI tools that can connect to remote MCP servers. MCP gives compatible AI clients a standard way to use Memside as a continuity layer instead of locking your memory into one assistant.
 
 ```text
 https://api.memside.com/mcp/
@@ -24,6 +24,8 @@ Start here:
 ## What You Can Do
 
 With Memside connected, an AI tool can search your saved memories, fetch specific context, create new memories after you approve, update checkpoints, and build compact startup or resume packets. The goal is to keep useful context portable without turning every AI conversation into a long manual setup step.
+
+This is useful when you want to move a project between ChatGPT, Claude, local coding tools, or future MCP-compatible clients. Memside can help the next AI understand what you are building, what decisions were already made, what rules it should follow, and what the next step is.
 
 Memside keeps the normal product boundary intact. Private user data is scoped to the signed-in user, secret memories are excluded from AI-facing MCP and API-key flows, and destructive actions require stronger confirmation.
 
