@@ -30,6 +30,6 @@ https://api.memside.com/.well-known/oauth-protected-resource
 https://api.memside.com/.well-known/oauth-authorization-server
 ```
 
-Both should return JSON from the Memside API domain. If either URL fails, the connector will usually fail before the user reaches the login step.
+Both endpoints return JSON from the Memside API domain. If either URL fails, the connector will usually fail before the user reaches the login step.
 
 For user-facing setup errors, see [Troubleshooting](troubleshooting.md).

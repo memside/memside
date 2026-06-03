@@ -1,12 +1,12 @@
 # Capabilities
 
-Memside is an AI continuity and memory hub. It is built for people who move between AI tools, projects, devices, and working sessions, but still want the next AI to understand the important context without pasting a long prompt every time.
+Memside is an AI continuity and memory hub. It is built for people who move between AI tools, IDEs, coding agents, projects, and working sessions, but still want the next AI to understand the important context without pasting a long prompt every time.
 
 The product is centered on reusable context. A memory can be a project note, a decision, a task, an operating rule, a checkpoint, an imported conversation, or a supporting file. Connected AI tools can search and retrieve this context through MCP or direct API access, while the Memside app remains the place where users can review, edit, delete, and organize their own memory base.
 
 ## Cross-AI Continuity
 
-Memside helps you carry context between ChatGPT, Claude, Grok, GitHub Copilot, Codex, Cursor, Antigravity, opencode, and other MCP-capable tools. The goal is not to replace those tools. The goal is to give them a shared continuity layer so each one can pick up the right context when you ask.
+Memside helps you carry context between ChatGPT, Claude, Grok, GitHub Copilot, Codex, Cursor, Antigravity, opencode, and other compatible AI tools. The goal is not to replace those tools. The goal is to give them a shared continuity layer so each one can pick up the right context when you ask.
 
 This matters when a project spans multiple assistants. You may use ChatGPT for planning, Claude for writing, Cursor for code, and Codex for implementation. Without a shared memory layer, each tool starts with a partial view. With Memside, you can store the stable context once and let each connected tool retrieve the pieces it needs.
 
@@ -46,6 +46,6 @@ Memside can store supporting files and imported text so that important context i
 
 ## Public Integration Surface
 
-The public integration surface is intentionally smaller than the full app. MCP and API-key access are designed for AI clients and scripts. Some account, settings, attachment, assistant, and audit features remain app-only.
+The public integration surface is intentionally smaller than the full app. MCP and API-key access are designed for AI clients and scripts. Account management, sensitive app-session workflows, and non-public product surfaces remain app-only.
 
 This keeps the public integration useful without exposing private implementation details or expanding the AI-facing surface unnecessarily.

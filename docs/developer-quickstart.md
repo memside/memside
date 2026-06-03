@@ -7,7 +7,7 @@ This guide is for developers who want to connect Memside quickly without reading
 | Use case | Recommended path |
 | --- | --- |
 | ChatGPT, Grok, Claude, or another hosted client with OAuth | Remote MCP with OAuth |
-| VS Code, GitHub Copilot, Cursor, Claude Code, Codex, or a local MCP client | Remote MCP with bearer header |
+| IDEs and coding agents such as VS Code, GitHub Copilot, Cursor, Claude Code, Codex, Antigravity, opencode, or a local MCP client | Remote MCP with bearer header |
 | Scripts, automation, or quick tests | Direct API with a Memside API key |
 
 Hosted MCP server:

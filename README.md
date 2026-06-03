@@ -37,7 +37,7 @@ Use the path that matches your tool.
 | Goal | Use | Start here |
 | --- | --- | --- |
 | Connect ChatGPT, Grok, Claude, or another hosted client | OAuth MCP | [Client guides](docs/clients/README.md) |
-| Connect VS Code, Copilot, Cursor, Claude Code, Codex, or a local MCP client | Bearer-header MCP | [VS Code guide](docs/clients/vscode.md) |
+| Connect IDEs and coding agents such as VS Code, Copilot, Cursor, Claude Code, Codex, Antigravity, opencode, or a local MCP client | Bearer-header MCP | [VS Code guide](docs/clients/vscode.md) |
 | Call Memside from scripts or automation | API key | [API keys](docs/api-keys.md) |
 
 For a direct API smoke test, create a Memside API key and run:
@@ -156,7 +156,7 @@ See [MCP Registry metadata](docs/mcp-registry.md) for validation and smoke-test 
 
 With Memside connected, an AI tool can search your saved memories, fetch specific context, create new memories after you approve, update checkpoints, and build compact startup or resume packets. The goal is to keep useful context portable without turning every AI conversation into a long manual setup step.
 
-This is useful when you want to move a project between ChatGPT, Claude, local coding tools, or other MCP-compatible clients. Memside can help the next AI understand what you are building, what decisions were already made, what rules it should follow, and what the next step is.
+This is useful when you want to move a project between ChatGPT, Claude, Grok, IDEs, coding agents, or other compatible AI clients. Memside can help the next AI understand what you are building, what decisions were already made, what rules it should follow, and what the next step is.
 
 Memside keeps the normal product boundary intact. Private user data is scoped to the signed-in user, secret memories are excluded from AI-facing MCP and API-key flows, and destructive actions require stronger confirmation.
 

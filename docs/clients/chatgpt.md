@@ -8,7 +8,7 @@ Use this MCP server URL:
 https://api.memside.com/mcp/
 ```
 
-Choose OAuth during connector setup. ChatGPT should open the Memside OAuth flow, you sign in with your Memside account, and ChatGPT receives an MCP token for that account.
+Choose OAuth during connector setup. ChatGPT opens the Memside OAuth flow, you sign in with your Memside account, and ChatGPT receives an MCP token for that account.
 
 ## Setup
 
@@ -24,6 +24,6 @@ Use Memside startup context for this project, then summarize the current goal an
 
 ## Notes
 
-ChatGPT should not need your Memside password or API key pasted into the chat. OAuth handles the connection.
+Do not paste your Memside password or API key into ChatGPT. OAuth handles the connection.
 
 If Google shows `redirect_uri_mismatch` during setup, see [Troubleshooting](../troubleshooting.md).

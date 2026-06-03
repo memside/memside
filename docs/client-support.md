@@ -4,16 +4,16 @@ This matrix summarizes public Memside setup paths. Client UI and MCP behavior ca
 
 | Client | Recommended auth | Setup path | Current confidence | Last checked |
 | --- | --- | --- | --- | --- |
-| ChatGPT | OAuth | Custom MCP connector | Public docs prepared, live retest pending | 2026-06-02 |
-| Grok | OAuth | Custom MCP connector | Public docs prepared, live retest pending | 2026-06-02 |
-| Claude web or desktop | OAuth, when available | Remote MCP connector | Public docs prepared, live retest pending | 2026-06-02 |
-| Claude Code | API-key bearer header | CLI MCP config | Public docs prepared, live retest pending | 2026-06-02 |
+| ChatGPT | OAuth | Custom MCP connector | Setup guide prepared, live retest pending | 2026-06-02 |
+| Grok | OAuth | Custom MCP connector | Setup guide prepared, live retest pending | 2026-06-02 |
+| Claude web or desktop | OAuth, when available | Remote MCP connector | Setup guide prepared, live retest pending | 2026-06-02 |
+| Claude Code | API-key bearer header | CLI MCP config | Setup guide prepared, live retest pending | 2026-06-02 |
 | VS Code | API-key bearer header | MCP Registry, manifest install, or manual config | Manual config tested with tools discovered | 2026-06-02 |
 | GitHub Copilot in VS Code | API-key bearer header | VS Code MCP config | Follows VS Code path | 2026-06-02 |
-| Cursor | OAuth or API-key bearer header, depending on version | Remote MCP config | Public docs prepared, live retest pending | 2026-06-02 |
-| Codex | API-key bearer header, depending on surface | MCP config | Public docs prepared, live retest pending | 2026-06-02 |
-| Google Antigravity | API-key bearer header, depending on version | MCP config | Public docs prepared, live retest pending | 2026-06-02 |
-| opencode | OAuth or API-key bearer header, depending on version | MCP config | Public docs prepared, live retest pending | 2026-06-02 |
+| Cursor | OAuth or API-key bearer header, depending on version | Remote MCP config | Setup guide prepared, live retest pending | 2026-06-02 |
+| Codex | API-key bearer header, depending on surface | MCP config | Setup guide prepared, live retest pending | 2026-06-02 |
+| Google Antigravity | API-key bearer header, depending on version | MCP config | Setup guide prepared, live retest pending | 2026-06-02 |
+| opencode | OAuth or API-key bearer header, depending on version | MCP config | Setup guide prepared, live retest pending | 2026-06-02 |
 
 ## Known Limitations
 
@@ -22,4 +22,4 @@ This matrix summarizes public Memside setup paths. Client UI and MCP behavior ca
 - Manual config is the most reliable fallback when a gallery or marketplace does not show Memside.
 - API-key callers do not get every Memside app feature.
 - Secret memories are excluded from AI-facing MCP and API-key flows.
-- Production tool behavior should be retested after material MCP server changes.
+- Retest tool behavior after material MCP server changes.

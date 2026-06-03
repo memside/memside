@@ -30,7 +30,7 @@ Pull the latest Memside resume context for this project and continue from the ne
 
 ## Search Before Fetch
 
-Search results should be treated as a shortlist. A connected AI can search first, inspect previews, and fetch full memory details only for the items that matter.
+Treat search results as a shortlist. A connected AI can search first, inspect previews, and fetch full memory details only for the items that matter.
 
 This pattern helps avoid loading irrelevant memory bodies. It also makes the AI explain which context it is using before it acts.
 

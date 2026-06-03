@@ -20,7 +20,7 @@ https://api.memside.com/mcp/
 8. Save the connector.
 9. When Grok asks for authentication, sign in with your Memside account through OAuth.
 
-After authentication, Memside should be available as a connector in Grok. Restart Grok once if the connector does not appear immediately.
+After authentication, check whether Memside appears as a connector in Grok. Restart Grok once if the connector does not appear immediately.
 
 You do not need to paste a Memside API key into Grok for this connector flow.
 
