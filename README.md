@@ -1,6 +1,6 @@
 # Memside
 
-Memside is an AI continuity and memory hub for people who work across ChatGPT, Claude, developer tools, browsers, and different devices. It gives you a private place to save reusable context, decisions, operating rules, project notes, and checkpoints so you can move from one AI to another without rebuilding the same background every time.
+Memside is an AI continuity and memory hub for people who work across ChatGPT, Claude, Grok, IDEs, coding agents, and other AI tools that support OAuth, MCP, or API-key connections. It gives you a private place to save reusable context, decisions, operating rules, project notes, and checkpoints so you can move from one AI to another without rebuilding the same background every time.
 
 Use Memside when you want your AI context to survive beyond one chat window. A connected AI tool can retrieve the right memory, continue a project from a checkpoint, follow your saved working preferences, or create new durable context after you approve it. This repository is the public home for Memside integration docs, examples, and support information. It is not a mirror of the private production application source.
 
