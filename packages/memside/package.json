@@ -1,0 +1,43 @@
+{
+  "name": "memside",
+  "version": "0.1.0",
+  "description": "Lightweight JavaScript client for the public Memside API.",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "memside",
+    "ai",
+    "memory",
+    "mcp",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memside/memside.git",
+    "directory": "packages/memside"
+  },
+  "bugs": {
+    "url": "https://github.com/memside/memside/issues"
+  },
+  "homepage": "https://github.com/memside/memside#readme",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "engines": {
+    "node": ">=18"
+  }
+}
