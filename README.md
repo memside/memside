@@ -42,7 +42,7 @@ Use the path that matches your tool.
 | Connect IDEs and coding agents such as VS Code, Copilot, Cursor, Claude Code, Codex, Antigravity, opencode, or a local MCP client | Bearer-header MCP | [VS Code guide](docs/clients/vscode.md) |
 | Call Memside from scripts or automation | API key | [API keys](docs/api-keys.md) |
 
-For a direct API smoke test, create a Memside API key and run:
+For a direct API check, create a Memside API key and run:
 
 ```bash
 curl https://api.memside.com/context/startup \
@@ -152,7 +152,7 @@ The registry entry is published under:
 io.github.memside/memside
 ```
 
-See [MCP Registry metadata](docs/mcp-registry.md) for validation and smoke-test notes.
+See [MCP Registry metadata](docs/mcp-registry.md) for registry and endpoint checks.
 
 ## What You Can Do
 

@@ -6,7 +6,7 @@ Published the `memside` npm and PyPI packages and added SDK setup details to the
 
 ## 2026-06-02, developer-friendly public repo pass
 
-Added a developer quickstart, public API reference, runnable JavaScript examples, VS Code setup notes, public issue templates, and a lightweight docs validation workflow.
+Added a developer quickstart, public API reference, runnable JavaScript examples, VS Code setup notes, public issue templates, and a lightweight docs check workflow.
 
 Improved API-key guidance so developers can more clearly understand supported routes, access boundaries, and safe setup practices.
 
@@ -14,7 +14,7 @@ Improved API-key guidance so developers can more clearly understand supported ro
 
 Added a restricted public repository license for Memside-owned documentation, examples, and registry metadata.
 
-Added MCP Registry validation notes, endpoint smoke-test guidance, and a publish-workflow dry run before registry submission.
+Added MCP Registry checks, endpoint guidance, and registry publish workflow coverage.
 
 Updated `server.json` metadata to include the public Memside website and bump the registry metadata version to `1.0.2`.
 

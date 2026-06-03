@@ -8,7 +8,7 @@ This guide is for developers who want to connect Memside quickly without reading
 | --- | --- |
 | ChatGPT, Grok, Claude, or another hosted client with OAuth | Remote MCP with OAuth |
 | IDEs and coding agents such as VS Code, GitHub Copilot, Cursor, Claude Code, Codex, Antigravity, opencode, or a local MCP client | Remote MCP with bearer header |
-| Scripts, automation, or quick tests | Direct API with a Memside API key |
+| Scripts, automation, or direct API access | Direct API with a Memside API key |
 
 Hosted MCP server:
 
@@ -22,7 +22,7 @@ API base URL:
 https://api.memside.com
 ```
 
-## 2. Run a Direct API Smoke Test
+## 2. Try the Direct API
 
 Create a Memside API key in the app, then set it as an environment variable.
 

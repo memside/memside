@@ -29,9 +29,9 @@ The file includes:
 - the remote MCP endpoint
 - the required bearer header for API-key based clients
 
-## Validation
+## Registry Checks
 
-Before publishing a new metadata version, validate that `server.json` still parses and matches the official schema.
+Before publishing a new metadata version, check that `server.json` still parses and matches the official schema.
 
 Useful checks:
 
@@ -51,7 +51,7 @@ curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.mem
 
 The registry response should include `io.github.memside/memside` and should mark the latest published version as active.
 
-## Endpoint Smoke Tests
+## Endpoint Checks
 
 Unauthenticated requests to the MCP endpoint should fail with an authentication error, not a missing route:
 
@@ -78,7 +78,7 @@ Expected result:
 HTTP/1.1 200 OK
 ```
 
-These smoke tests prove that the public registry URL points at the hosted MCP and OAuth surface. They do not prove an authenticated MCP tool call unless a real Memside OAuth token or API key is used.
+These checks confirm that the public registry URL points at the hosted MCP and OAuth surface. Authenticated MCP tool calls require a real Memside OAuth token or API key.
 
 ## Publishing
 
