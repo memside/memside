@@ -17,6 +17,7 @@ If your AI tool supports OAuth for MCP, choose OAuth during setup and sign in wi
 Start here:
 
 - [Developer quickstart](docs/developer-quickstart.md)
+- [JavaScript SDK](packages/memside/README.md)
 - [Capabilities](docs/capabilities.md)
 - [Token savings and context reuse](docs/token-savings.md)
 - [Memory types and sensitivity](docs/memory-types.md)
@@ -53,6 +54,29 @@ npm run startup
 ```
 
 Set `MEMSIDE_API_KEY` before running examples. See [Developer quickstart](docs/developer-quickstart.md) for the full setup.
+
+## JavaScript SDK
+
+Memside publishes a lightweight JavaScript SDK for public API-key workflows:
+
+```bash
+npm install memside
+```
+
+Basic usage:
+
+```js
+import { MemsideClient } from "memside";
+
+const memside = new MemsideClient({
+  apiKey: process.env.MEMSIDE_API_KEY
+});
+
+const startup = await memside.context.startup();
+console.log(startup);
+```
+
+The SDK wraps public Memside API routes for startup context, resume context, workspace profile, and memory operations. See [packages/memside](packages/memside/README.md) for package details.
 
 ## MCP Server Setup
 

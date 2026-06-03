@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-06-03, JavaScript SDK
+
+Published the `memside` npm package and added JavaScript SDK setup details to the public README.
+
 ## 2026-06-02, developer-friendly public repo pass
 
 Added a developer quickstart, public API reference, runnable JavaScript examples, VS Code setup notes, public issue templates, and a lightweight docs validation workflow.
