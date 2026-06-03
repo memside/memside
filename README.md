@@ -4,6 +4,8 @@ Memside is an AI continuity and memory hub for people who work across ChatGPT, C
 
 Use Memside when you want your AI context to survive beyond one chat window. A connected AI tool can retrieve the right memory, continue a project from a checkpoint, follow your saved working preferences, or create new durable context after you approve it. This repository is the public home for Memside integration docs, examples, and support information. It is not a mirror of the private production application source.
 
+Product site: [https://www.memside.com](https://www.memside.com)
+
 ## Connect Memside
 
 Memside supports hosted MCP access for AI tools that can connect to remote MCP servers. MCP gives compatible AI clients a standard way to use Memside as a continuity layer instead of locking your memory into one assistant.
