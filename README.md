@@ -18,6 +18,7 @@ Start here:
 
 - [Developer quickstart](docs/developer-quickstart.md)
 - [JavaScript SDK](packages/memside/README.md)
+- [Python SDK](packages/python/README.md)
 - [Capabilities](docs/capabilities.md)
 - [Token savings and context reuse](docs/token-savings.md)
 - [Memory types and sensitivity](docs/memory-types.md)
@@ -76,7 +77,28 @@ const startup = await memside.context.startup();
 console.log(startup);
 ```
 
-The SDK wraps public Memside API routes for startup context, resume context, workspace profile, and memory operations. See [packages/memside](packages/memside/README.md) for package details.
+The JavaScript SDK wraps public Memside API routes for startup context, resume context, workspace profile, and memory operations. See [packages/memside](packages/memside/README.md) for package details.
+
+## Python SDK
+
+Memside also publishes a lightweight Python SDK for public API-key workflows:
+
+```bash
+pip install memside
+```
+
+Basic usage:
+
+```python
+from memside import MemsideClient
+
+client = MemsideClient(api_key="mem_sk_your_key_here")
+
+startup = client.context_startup()
+print(startup)
+```
+
+The Python SDK wraps the same public Memside API areas as the JavaScript SDK. See [packages/python](packages/python/README.md) for package details.
 
 ## MCP Server Setup
 

@@ -1,8 +1,8 @@
 # Changelog
 
-## 2026-06-03, JavaScript SDK
+## 2026-06-03, JavaScript and Python SDKs
 
-Published the `memside` npm package and added JavaScript SDK setup details to the public README.
+Published the `memside` npm and PyPI packages and added SDK setup details to the public README.
 
 ## 2026-06-02, developer-friendly public repo pass
 

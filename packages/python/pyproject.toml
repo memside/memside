@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "memside"
+version = "0.1.0"
+description = "Lightweight Python client for the public Memside API."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE.md" }
+authors = [
+  { name = "Memside", email = "support@memside.com" }
+]
+keywords = ["memside", "ai", "memory", "mcp", "sdk"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13"
+]
+
+[project.urls]
+Homepage = "https://github.com/memside/memside"
+Repository = "https://github.com/memside/memside"
+Issues = "https://github.com/memside/memside/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
