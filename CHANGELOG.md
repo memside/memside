@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-06-04, connector safety and privacy docs
+
+Updated public privacy, OAuth, support, and security docs with clearer AI connector safety, third-party AI provider, revoke/disconnect, deletion/retention, and high-level encryption language.
 ## 2026-06-03, JavaScript and Python SDKs
 
 Published the `memside` npm and PyPI packages and added SDK setup details to the public README.
