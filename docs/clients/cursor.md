@@ -18,14 +18,8 @@ Project config example:
 {
   "mcpServers": {
     "memside": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://api.memside.com/mcp/",
-        "--header",
-        "Authorization: Bearer mem_sk_your_memside_api_key"
-      ]
+      "type": "streamable-http",
+      "url": "https://api.memside.com/mcp/"
     }
   }
 }
@@ -37,6 +31,8 @@ Common config locations:
 - Global config: `~/.cursor/mcp.json`
 
 If Cursor starts an OAuth flow, sign in with your Memside account. If your Cursor version expects headers instead of OAuth, use a Memside API key as a bearer token only if the client supports secure header configuration.
+
+This public repository also includes a root [`.mcp.json`](../../.mcp.json) for directory discovery. Do not add real API keys or user-specific headers to shared repository metadata.
 
 ## Suggested Use
 

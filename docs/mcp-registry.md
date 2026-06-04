@@ -29,6 +29,28 @@ The file includes:
 - the remote MCP endpoint
 - the required bearer header for API-key based clients
 
+## Third-Party Directory Metadata
+
+Some third-party MCP directories use their own repository metadata in addition to the official MCP Registry file.
+
+Memside includes:
+
+- [`glama.json`](../glama.json) for Glama repository ownership claiming.
+- [`.plugin/plugin.json`](../.plugin/plugin.json) for Open Plugins metadata.
+- [`.mcp.json`](../.mcp.json) for Open Plugins and Cursor-style MCP discovery.
+
+These files describe Memside as a hosted remote MCP server at:
+
+```text
+https://api.memside.com/mcp/
+```
+
+They must not contain real API keys, OAuth client secrets, reviewer credentials, private URLs, or internal architecture notes.
+
+If a directory reports the hosted MCP server as unhealthy, keep the MCP endpoint authenticated. Do not make the MCP endpoint public just to satisfy a crawler. Use the correct MCP URL, OAuth setup, API-key setup where supported, or the directory's private verification process.
+
+Glama domain ownership through `/.well-known/glama.json` must be served by the live domain being claimed. Adding that file to this public repository alone does not make it available at `https://www.memside.com/.well-known/glama.json` or `https://api.memside.com/.well-known/glama.json`.
+
 ## Registry Checks
 
 Before publishing a new metadata version, check that `server.json` still parses and matches the official schema.

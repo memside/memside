@@ -1,0 +1,20 @@
+{
+  "name": "memside",
+  "version": "1.0.2",
+  "description": "Hosted remote MCP server for portable AI memory, context, operating rules, and checkpoints.",
+  "author": {
+    "name": "Memside",
+    "url": "https://www.memside.com"
+  },
+  "homepage": "https://www.memside.com",
+  "repository": "https://github.com/memside/memside",
+  "license": "LicenseRef-Memside-Public-Docs",
+  "keywords": [
+    "mcp",
+    "remote-mcp",
+    "memory",
+    "ai-continuity",
+    "context"
+  ],
+  "mcpServers": "./.mcp.json"
+}

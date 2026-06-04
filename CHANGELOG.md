@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-04, third-party MCP directory metadata
+
+Added Glama ownership metadata and Open Plugins/Cursor discovery metadata for the hosted Memside MCP server.
+
+Updated public MCP registry and Cursor docs to distinguish official MCP Registry metadata from third-party directory metadata and to keep shared files free of credentials.
+
 ## 2026-06-04, connector safety and privacy docs
 
 Updated public privacy, OAuth, support, and security docs with clearer AI connector safety, third-party AI provider, revoke/disconnect, deletion/retention, and high-level encryption language.

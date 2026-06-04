@@ -30,6 +30,7 @@ Start here:
 - [Use Memside with API keys](docs/api-keys.md)
 - [Public API reference](docs/public-api.md)
 - [MCP Registry metadata](docs/mcp-registry.md)
+- [Directory metadata](docs/mcp-registry.md#third-party-directory-metadata)
 - [Troubleshooting](docs/troubleshooting.md)
 
 ## Developer Quickstart
@@ -154,6 +155,8 @@ io.github.memside/memside
 
 See [MCP Registry metadata](docs/mcp-registry.md) for registry and endpoint checks.
 
+This repository also includes lightweight third-party directory metadata for Glama and Open Plugins/Cursor discovery. These files point to the same hosted MCP server URL and do not contain credentials.
+
 ## What You Can Do
 
 With Memside connected, an AI tool can search your saved memories, fetch specific context, create new memories after you approve, update checkpoints, and build compact startup or resume packets. The goal is to keep useful context portable without turning every AI conversation into a long manual setup step.
@@ -189,6 +192,7 @@ This repo contains:
 
 - setup guides for MCP clients
 - MCP Registry metadata
+- third-party MCP directory metadata
 - technical product capability docs
 - API-key usage examples
 - developer quickstart and runnable examples

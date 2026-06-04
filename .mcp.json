@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "memside": {
+      "type": "streamable-http",
+      "url": "https://api.memside.com/mcp/"
+    }
+  }
+}
