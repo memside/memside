@@ -5,13 +5,13 @@
     "email": "support@memside.com"
   },
   "metadata": {
-    "description": "Cursor plugin metadata for Memside's hosted remote MCP server."
+    "description": "Cursor plugin metadata for Memside's AI continuity and memory hub."
   },
   "plugins": [
     {
       "name": "memside",
       "source": ".",
-      "description": "Hosted remote MCP server for portable AI memory, context, operating rules, and checkpoints."
+      "description": "Connect Cursor to Memside's hosted MCP server to reuse portable context, checkpoints, operating rules, User AI Profile, and AI Skills across AI apps, tools, and chats."
     }
   ]
 }

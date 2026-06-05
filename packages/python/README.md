@@ -1,6 +1,6 @@
 # Memside Python SDK
 
-Lightweight Python client for the public Memside API.
+Python client for Memside AI continuity, portable context, checkpoints, operating rules, User AI Profile, and AI Skills.
 
 ## Install
 

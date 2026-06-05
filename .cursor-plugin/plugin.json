@@ -2,8 +2,8 @@
   "$schema": "https://cursor.com/schemas/cursor-plugin/plugin.json",
   "name": "memside",
   "displayName": "Memside",
-  "version": "1.0.2",
-  "description": "Hosted remote MCP server for portable AI memory, context, operating rules, and checkpoints.",
+  "version": "1.0.3",
+  "description": "Connect Cursor to Memside's hosted MCP server to reuse portable context, checkpoints, operating rules, User AI Profile, and AI Skills across AI apps, tools, and chats.",
   "author": {
     "name": "Memside",
     "email": "support@memside.com"

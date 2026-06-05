@@ -1,7 +1,7 @@
 {
   "name": "memside",
   "version": "0.1.0",
-  "description": "Lightweight JavaScript client for the public Memside API.",
+  "description": "JavaScript client for Memside AI continuity, portable context, checkpoints, operating rules, User AI Profile, and AI Skills.",
   "type": "module",
   "main": "./index.js",
   "types": "./index.d.ts",

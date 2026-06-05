@@ -1,6 +1,6 @@
 # Memside JavaScript SDK
 
-Lightweight JavaScript client for the public Memside API.
+JavaScript client for Memside AI continuity, portable context, checkpoints, operating rules, User AI Profile, and AI Skills.
 
 ## Install
 

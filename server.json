@@ -2,13 +2,13 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.memside/memside",
   "title": "Memside",
-  "description": "AI continuity and memory hub for portable context, checkpoints, and cross-AI memory.",
+  "description": "AI continuity and memory hub for portable context, checkpoints, operating rules, User AI Profile, and reusable AI Skills across AI apps, tools, and chats.",
   "repository": {
     "url": "https://github.com/memside/memside",
     "source": "github"
   },
   "websiteUrl": "https://www.memside.com",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "remotes": [
     {
       "type": "streamable-http",
