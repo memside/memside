@@ -34,6 +34,12 @@ If Cursor starts an OAuth flow, sign in with your Memside account. If your Curso
 
 This public repository also includes a root [`.mcp.json`](../../.mcp.json) for directory discovery. Do not add real API keys or user-specific headers to shared repository metadata.
 
+## Cursor Plugin Metadata
+
+This repository includes Cursor plugin metadata at [`.cursor-plugin/plugin.json`](../../.cursor-plugin/plugin.json). The plugin references the root [`.mcp.json`](../../.mcp.json), which points Cursor to Memside's hosted remote MCP server.
+
+The plugin metadata is for discovery and installation. It does not include API keys, bearer tokens, OAuth tokens, or user-specific headers.
+
 ## Suggested Use
 
 Cursor is a strong fit for project continuity. Ask it to pull Memside context before planning a change, reviewing a diff, or resuming work in a repository.

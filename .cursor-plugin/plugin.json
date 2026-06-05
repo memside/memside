@@ -1,0 +1,32 @@
+{
+  "$schema": "https://cursor.com/schemas/cursor-plugin/plugin.json",
+  "name": "memside",
+  "displayName": "Memside",
+  "version": "1.0.2",
+  "description": "Hosted remote MCP server for portable AI memory, context, operating rules, and checkpoints.",
+  "author": {
+    "name": "Memside",
+    "email": "support@memside.com"
+  },
+  "publisher": "Memside",
+  "homepage": "https://www.memside.com",
+  "repository": "https://github.com/memside/memside",
+  "license": "LicenseRef-Memside-Public-Docs",
+  "keywords": [
+    "mcp",
+    "remote-mcp",
+    "memory",
+    "ai-continuity",
+    "context",
+    "checkpoints",
+    "operating-rules"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "mcp",
+    "memory",
+    "context",
+    "productivity"
+  ],
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "memside-cursor-plugin",
+  "owner": {
+    "name": "Memside",
+    "email": "support@memside.com"
+  },
+  "metadata": {
+    "description": "Cursor plugin metadata for Memside's hosted remote MCP server."
+  },
+  "plugins": [
+    {
+      "name": "memside",
+      "source": ".",
+      "description": "Hosted remote MCP server for portable AI memory, context, operating rules, and checkpoints."
+    }
+  ]
+}

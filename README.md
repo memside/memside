@@ -155,7 +155,7 @@ io.github.memside/memside
 
 See [MCP Registry metadata](docs/mcp-registry.md) for registry and endpoint checks.
 
-This repository also includes lightweight third-party directory metadata for Glama and Open Plugins/Cursor discovery. These files point to the same hosted MCP server URL and do not contain credentials.
+This repository also includes lightweight third-party directory metadata for Glama, Open Plugins, and Cursor plugin discovery. These files point to the same hosted MCP server URL and do not contain credentials.
 
 ## What You Can Do
 
@@ -193,6 +193,7 @@ This repo contains:
 - setup guides for MCP clients
 - MCP Registry metadata
 - third-party MCP directory metadata
+- Cursor plugin metadata
 - technical product capability docs
 - API-key usage examples
 - developer quickstart and runnable examples
