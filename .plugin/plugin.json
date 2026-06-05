@@ -1,7 +1,7 @@
 {
   "name": "memside",
   "version": "1.0.3",
-  "description": "AI continuity and memory hub for portable context, checkpoints, operating rules, User AI Profile, and reusable AI Skills across AI apps, tools, and chats.",
+  "description": "AI continuity hub for context, checkpoints, rules, profile, and AI Skills across tools and chats.",
   "author": {
     "name": "Memside",
     "url": "https://www.memside.com"

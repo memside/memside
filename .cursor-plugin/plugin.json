@@ -3,7 +3,7 @@
   "name": "memside",
   "displayName": "Memside",
   "version": "1.0.3",
-  "description": "Connect Cursor to Memside's hosted MCP server to reuse portable context, checkpoints, operating rules, User AI Profile, and AI Skills across AI apps, tools, and chats.",
+  "description": "Connect Cursor to Memside for context, checkpoints, rules, profile, and AI Skills across chats.",
   "author": {
     "name": "Memside",
     "email": "support@memside.com"
