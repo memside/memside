@@ -6,6 +6,37 @@ Use Memside when you want your AI context to survive beyond one chat window. A c
 
 Product site: [https://www.memside.com](https://www.memside.com)
 
+## Continuity With Less Repeated Prompting
+
+Memside is built to give AI assistants the right context at the right time:
+current task state, saved preferences, project notes, checkpoints, and reusable
+rules. In internal testing and early pilot usage, this helped AI tools stay on
+track without requiring users to rebuild the same detailed prompt in every new
+chat or IDE session.
+
+High-level test results:
+
+| Context approach | Continuity score |
+| --- | ---: |
+| No Context | ~45% |
+| Long Context Dump | ~84-85% |
+| Memside Context | ~96-99% |
+| Very Detailed Manual Prompt | ~97-99% |
+
+**Token savings:** in separate context-reuse tests, Memside reduced repeated
+full-context transfer by **83-91%** on representative light, medium, and heavy
+project datasets.
+
+A very detailed manual prompt means a long prompt where the user includes every
+important detail by hand: project state, preferences, decisions, references, and
+next steps. With Memside, the workflow is simpler: ask the AI to save the
+checkpoint, references, and useful context, then move to a new chat and ask it
+to continue from that checkpoint using Memside.
+
+Results are based on internal tests and early pilot usage patterns. Performance
+varies by model, provider, prompt style, and workflow. See
+[Continuity and context results](docs/continuity-results.md) for details.
+
 ## Connect Memside
 
 Memside supports hosted MCP access for AI tools that can connect to remote MCP servers. MCP gives compatible AI clients a standard way to use Memside as a continuity layer instead of locking your memory into one assistant.
@@ -22,6 +53,7 @@ Start here:
 - [JavaScript SDK](packages/memside/README.md)
 - [Python SDK](packages/python/README.md)
 - [Capabilities](docs/capabilities.md)
+- [Continuity and context results](docs/continuity-results.md)
 - [Token savings and context reuse](docs/token-savings.md)
 - [Memory types and sensitivity](docs/memory-types.md)
 - [Connect AI clients](docs/clients/README.md)
