@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+- Repaired the JavaScript and Python SDK baseline with valid Memory create
+  inputs, explicit deletion confirmation, compatible public and legacy error
+  parsing, `Retry-After` exposure, and opt-in deployed read tests.
+- Added concrete TypeScript contracts and lightweight Python `TypedDict`
+  exports for the existing Context and Memory methods.
+- Replaced development-specific sample memories with neutral everyday
+  examples.
+
+- Added direct API and JavaScript/Python SDK support for reading 1-8 exact
+  known Memory IDs in one bounded request, matching the hosted MCP batch-read
+  capability while preserving API-key privacy and rate-limit boundaries.
+
 ## 2026-06-04, third-party MCP directory metadata
 
 Added Glama ownership metadata and Open Plugins/Cursor discovery metadata for the hosted Memside MCP server.

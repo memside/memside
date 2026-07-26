@@ -34,9 +34,9 @@ curl https://api.memside.com/memories \
   -H "Authorization: Bearer $MEMSIDE_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "text": "Launch note\nMemside public repository setup started.",
+    "text": "Packing checklist\nBring a charger and a reusable bottle.",
     "type": "note",
     "sensitivity": "private",
-    "tags": ["launch", "github"]
+    "tags": ["travel", "checklist"]
   }'
 ```

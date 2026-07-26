@@ -1,6 +1,6 @@
 import { memside } from "./memside-client.mjs";
 
-const query = process.argv.slice(2).join(" ").trim() || "launch";
+const query = process.argv.slice(2).join(" ").trim() || "packing";
 const params = new URLSearchParams({ q: query, limit: "5" });
 const results = await memside(`/memories/search?${params.toString()}`);
 

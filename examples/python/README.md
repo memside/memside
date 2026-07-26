@@ -25,10 +25,10 @@ created = memside(
     "POST",
     "/memories",
     json={
-        "text": "Launch note\nMemside Python example created a memory.",
+        "text": "Packing checklist\nBring a charger and a reusable bottle.",
         "type": "note",
         "sensitivity": "private",
-        "tags": ["example", "python"],
+        "tags": ["travel", "checklist"],
     },
 )
 

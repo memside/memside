@@ -7,6 +7,7 @@ export class MemsideError extends Error {
     this.status = options.status;
     this.code = options.code;
     this.retryable = options.retryable;
+    this.retryAfter = options.retryAfter;
     this.requestId = options.requestId;
     this.details = options.details;
   }
@@ -46,10 +47,23 @@ export class MemsideClient {
       list: (params) => this.request("GET", "/memories", { query: params }),
       search: (params) => this.request("GET", "/memories/search", { query: params }),
       get: (id) => this.request("GET", `/memories/${encodeURIComponent(id)}`),
+      getBatch: (ids, options = {}) =>
+        this.request("GET", "/memories/batch", {
+          query: {
+            memory_ids: ids,
+            include_attachments: options.includeAttachments
+          }
+        }),
       create: (memory) => this.request("POST", "/memories", { body: memory }),
       update: (id, patch) =>
         this.request("PATCH", `/memories/${encodeURIComponent(id)}`, { body: patch }),
-      delete: (id) => this.request("DELETE", `/memories/${encodeURIComponent(id)}`)
+      delete: (id, deleteConfirmation) =>
+        this.request("DELETE", `/memories/${encodeURIComponent(id)}`, {
+          body:
+            deleteConfirmation === undefined
+              ? undefined
+              : { delete_confirmation: deleteConfirmation }
+        })
     };
   }
 
@@ -126,14 +140,24 @@ async function readPayload(response) {
 }
 
 function toMemsideError(response, payload) {
-  const error = payload && typeof payload === "object" ? payload.error : null;
-  const message = error?.message || response.statusText || "Memside API request failed";
+  const envelope = payload && typeof payload === "object" ? payload : null;
+  const error = envelope?.error;
+  const detail = envelope?.detail;
+  const structuredDetail =
+    detail && typeof detail === "object" && !Array.isArray(detail) ? detail : null;
+  const message =
+    error?.message ||
+    structuredDetail?.message ||
+    (typeof detail === "string" ? detail : null) ||
+    response.statusText ||
+    "Memside API request failed";
 
   return new MemsideError(message, {
     status: error?.status || response.status,
-    code: error?.code || "request_failed",
+    code: error?.code || structuredDetail?.code || "request_failed",
     retryable: Boolean(error?.retryable),
-    requestId: payload?.request_id,
-    details: payload
+    retryAfter: response.headers?.get?.("retry-after") || undefined,
+    requestId: envelope?.request_id,
+    details: error ? error.details : detail ?? payload
   });
 }
