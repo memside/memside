@@ -69,9 +69,10 @@ These routes are intended for public API-key callers.
 | `GET` | `/memories` | List memories available to the authenticated user |
 | `GET` | `/memories/search` | Search memories with query and filters |
 | `GET` | `/memories/{id}` | Fetch one memory by id |
+| `GET` | `/memories/batch?memory_ids={id}&memory_ids={id}` | Fetch 1-8 exact known memories in one bounded read |
 | `POST` | `/memories` | Create a memory |
 | `PATCH` | `/memories/{id}` | Update a memory |
-| `DELETE` | `/memories/{id}` | Delete a memory when allowed |
+| `DELETE` | `/memories/{id}` | Delete a memory with explicit confirmation when allowed |
 
 Availability can be narrower than the app UI. If a route returns an access error for an API key, use the Memside app or contact support.
 
@@ -84,6 +85,34 @@ The public API-key surface is intentionally smaller than the Memside app. Accoun
 Public and private memories can be available to connected AI tools when the authenticated user asks for them and the access path allows it.
 
 Secret memories are app-only and are excluded from AI-facing MCP and API-key flows.
+
+The bounded batch read preserves first-seen order, removes duplicate IDs,
+charges rate limits per unique ID, limits each memory body to 2,000 characters
+and combined body text to 12,000 characters, and returns an item-level result
+for each accessible or unavailable ID. Raw attachment data is never returned.
+API-key requests report secret and foreign-owner IDs as unavailable without
+returning or confirming their contents.
+
+## Destructive Confirmation
+
+Memory deletion requires both the account permission and an exact,
+resource-specific confirmation:
+
+```json
+{
+  "delete_confirmation": "CONFIRM_DELETE_memory-id"
+}
+```
+
+The JavaScript and Python SDK methods accept this confirmation as their second
+argument. Neither SDK retries writes automatically.
+
+## SDK Error Compatibility
+
+The SDKs parse the current public error envelope and compatibility responses
+that contain a string or structured `detail`. Errors expose the HTTP status,
+stable code when available, retryability, request ID, safe details, and the
+`Retry-After` header when present.
 
 ## Troubleshooting
 

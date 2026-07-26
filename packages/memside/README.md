@@ -21,6 +21,26 @@ const startup = await memside.context.startup();
 console.log(startup);
 ```
 
+Create a memory with the public `type` and `text` fields:
+
+```js
+const memory = await memside.memories.create({
+  type: "note",
+  text: "Packing checklist\nBring a charger and a reusable bottle.",
+  sensitivity: "private"
+});
+```
+
+Deletion requires the resource-specific confirmation returned by your
+application workflow:
+
+```js
+await memside.memories.delete(
+  memory.id,
+  `CONFIRM_DELETE_${memory.id}`
+);
+```
+
 ## Supported API Areas
 
 This package wraps public Memside API-key routes:
@@ -31,6 +51,7 @@ This package wraps public Memside API-key routes:
 - memory listing
 - memory search
 - memory fetch
+- bounded exact-ID memory batch reads
 - memory create
 - memory update
 - memory delete, when allowed by the API
@@ -54,6 +75,7 @@ Failed API requests throw `MemsideError` with:
 - `status`
 - `code`
 - `retryable`
+- `retryAfter`
 - `requestId`
 - `details`
 

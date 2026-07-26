@@ -28,9 +28,10 @@ Common public API-key routes:
 GET /memories
 GET /memories/search
 GET /memories/{id}
+GET /memories/batch?memory_ids={id}&memory_ids={id}
 POST /memories
 PATCH /memories/{id}
-DELETE /memories/{id}
+DELETE /memories/{id} with delete_confirmation
 GET /context/startup
 GET /context/resume
 GET /context/workspace-profile

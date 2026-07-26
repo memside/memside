@@ -3,10 +3,10 @@ import { memside } from "./memside-client.mjs";
 const created = await memside("/memories", {
   method: "POST",
   body: JSON.stringify({
-    text: "JavaScript example\nMemside JavaScript example created this memory.",
+    text: "Packing checklist\nBring a charger and a reusable bottle.",
     type: "note",
     sensitivity: "private",
-    tags: ["example", "javascript"],
+    tags: ["travel", "checklist"],
   }),
 });
 

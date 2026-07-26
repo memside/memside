@@ -30,7 +30,7 @@ npm run startup
 Search memories:
 
 ```bash
-npm run search -- launch
+npm run search -- packing
 ```
 
 Create a memory:
