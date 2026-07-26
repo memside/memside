@@ -4,8 +4,16 @@
   "type": "module",
   "scripts": {
     "startup": "node startup.mjs",
+    "context": "node context-workflow.mjs",
     "search": "node search.mjs",
-    "create-memory": "node create-memory.mjs"
+    "memory-read": "node memory-read-workflow.mjs",
+    "subject-read": "node subject-read-workflow.mjs",
+    "create-memory": "node create-memory.mjs",
+    "update-memory": "node update-memory.mjs",
+    "subject-workflow": "node subject-workflow.mjs",
+    "prepare-subject-delete": "node prepare-subject-delete.mjs",
+    "delete-memory": "node delete-memory.mjs",
+    "delete-subject": "node delete-subject.mjs"
   },
   "engines": {
     "node": ">=20"

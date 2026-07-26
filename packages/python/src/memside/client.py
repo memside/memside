@@ -5,11 +5,27 @@ from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+from .connected_context_types import ContextMap, MemoryInsightList
+from .subject_types import (
+    FactSuggestion,
+    FactSuggestionCreate,
+    Subject,
+    SubjectContext,
+    SubjectCreate,
+    SubjectDeleteResult,
+    SubjectDeletionPreview,
+    SubjectMemory,
+    SubjectMemoryLinkResult,
+    SubjectMemoryUnlinkResult,
+    SubjectFactList,
+    SubjectUpdate,
+)
 from .types import (
     Memory,
     MemoryBatchResult,
     MemoryCreate,
     MemoryDeleteResult,
+    MemoryRevisionList,
     MemoryUpdate,
     ResumeContext,
     StartupContext,
@@ -73,6 +89,15 @@ class MemsideClient:
     def memories_get(self, memory_id: str) -> Memory:
         return self.request("GET", f"/memories/{memory_id}")
 
+    def memories_get_revisions(self, memory_id: str) -> MemoryRevisionList:
+        return self.request("GET", f"/memories/{memory_id}/revisions")
+
+    def memories_get_context_map(self, memory_id: str) -> ContextMap:
+        return self.request("GET", f"/memories/{memory_id}/context-map")
+
+    def memories_list_subjects(self, memory_id: str) -> List[Subject]:
+        return self.request("GET", f"/memories/{memory_id}/subjects")
+
     def memories_get_batch(
         self,
         memory_ids: Iterable[str],
@@ -106,6 +131,121 @@ class MemsideClient:
         return self.request(
             "DELETE",
             f"/memories/{memory_id}",
+            json_body=body,
+        )
+
+    def subjects_list(self, **params) -> List[Subject]:
+        return self.request("GET", "/subjects", params=params)
+
+    def subjects_create(self, subject: SubjectCreate) -> Subject:
+        return self.request("POST", "/subjects", json_body=subject)
+
+    def subjects_get(self, subject_id: str) -> Subject:
+        return self.request("GET", f"/subjects/{subject_id}")
+
+    def subjects_update(self, subject_id: str, patch: SubjectUpdate) -> Subject:
+        return self.request("PATCH", f"/subjects/{subject_id}", json_body=patch)
+
+    def subjects_list_memories(
+        self,
+        subject_id: str,
+        *,
+        include_archived: bool = False,
+        limit: int = 20,
+    ) -> List[SubjectMemory]:
+        return self.request(
+            "GET",
+            f"/subjects/{subject_id}/memories",
+            params={"include_archived": include_archived, "limit": limit},
+        )
+
+    def subjects_link_memory(
+        self,
+        subject_id: str,
+        memory_id: str,
+    ) -> SubjectMemoryLinkResult:
+        return self.request(
+            "POST",
+            f"/subjects/{subject_id}/memories",
+            json_body={"memory_id": memory_id},
+        )
+
+    def subjects_unlink_memory(
+        self,
+        subject_id: str,
+        memory_id: str,
+    ) -> SubjectMemoryUnlinkResult:
+        return self.request(
+            "DELETE",
+            f"/subjects/{subject_id}/memories/{memory_id}",
+        )
+
+    def subjects_get_context(
+        self,
+        subject_id: str,
+        **params,
+    ) -> SubjectContext:
+        return self.request(
+            "GET",
+            f"/subjects/{subject_id}/context",
+            params=params,
+        )
+
+    def subjects_list_facts(
+        self,
+        subject_id: str,
+        *,
+        include_history: bool = False,
+        limit: int = 50,
+    ) -> SubjectFactList:
+        return self.request(
+            "GET",
+            f"/subjects/{subject_id}/facts",
+            params={"include_history": include_history, "limit": limit},
+        )
+
+    def subjects_suggest_fact(
+        self,
+        subject_id: str,
+        suggestion: FactSuggestionCreate,
+    ) -> FactSuggestion:
+        return self.request(
+            "POST",
+            f"/subjects/{subject_id}/fact-suggestions",
+            json_body=suggestion,
+        )
+
+    def subjects_list_memory_insights(
+        self,
+        subject_id: str,
+        *,
+        limit: int = 50,
+    ) -> MemoryInsightList:
+        return self.request(
+            "GET",
+            f"/subjects/{subject_id}/memory-insights",
+            params={"status": "pending", "limit": limit},
+        )
+
+    def subjects_prepare_delete(self, subject_id: str) -> SubjectDeletionPreview:
+        return self.request(
+            "POST",
+            f"/subjects/{subject_id}/deletion/prepare",
+        )
+
+    def subjects_delete(
+        self,
+        subject_id: str,
+        delete_confirmation: Optional[str] = None,
+    ) -> SubjectDeleteResult:
+        body = (
+            {"delete_confirmation": delete_confirmation}
+            if delete_confirmation is not None
+            else None
+        )
+        return self.request(
+            "DELETE",
+            f"/subjects/{subject_id}",
             json_body=body,
         )
 

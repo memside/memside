@@ -22,9 +22,12 @@ API base URL:
 https://api.memside.com
 ```
 
-## 2. Try the Direct API
+## 2. Direct API in Under Three Minutes
 
-Create a Memside API key in the app, then set it as an environment variable.
+This read-only check requires no local project setup.
+
+1. Create a Memside API key in the app and copy it.
+2. Set it as an environment variable.
 
 macOS or Linux:
 
@@ -38,14 +41,23 @@ Windows PowerShell:
 $env:MEMSIDE_API_KEY = "mem_sk_your_key_here"
 ```
 
-Run:
+3. Run on macOS or Linux:
 
 ```bash
 curl https://api.memside.com/context/startup \
   -H "Authorization: Bearer $MEMSIDE_API_KEY"
 ```
 
-Expected result: JSON from Memside. If the key is missing or invalid, Memside returns an auth error.
+Or run in Windows PowerShell:
+
+```powershell
+curl.exe https://api.memside.com/context/startup `
+  -H "Authorization: Bearer $env:MEMSIDE_API_KEY"
+```
+
+Expected result: JSON from Memside. If the key is missing or invalid, Memside
+returns an authentication error. The command reads context only and does not
+create or change data.
 
 ## 3. Run the JavaScript Example
 
@@ -59,11 +71,12 @@ npm run startup
 Other available scripts:
 
 ```bash
-npm run search -- launch
+npm run search -- packing
 npm run create-memory
 ```
 
-The create-memory example writes to your Memside account. Read the script before running it.
+The create-memory and other write examples change your Memside account. Read
+each script before running it.
 
 ## 4. Connect VS Code or Copilot
 
@@ -108,10 +121,12 @@ Use Memside startup context and tell me what context you found.
 For direct API work, start with:
 
 - `GET /context/startup`
-- `GET /memories/search?q=launch&limit=5`
-- `POST /memories`
+- `GET /memories/search?q=packing&limit=5`
+- `POST /memories` after reviewing a write example
 
-See [Public API Reference](public-api.md) for supported routes and response shapes.
+See [Public API Reference](public-api.md) for supported routes and response
+shapes, or [openapi.json](../openapi.json) for the curated machine-readable
+contract.
 
 ## Safety Notes
 

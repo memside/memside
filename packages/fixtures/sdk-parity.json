@@ -1,0 +1,49 @@
+{
+  "approved_operations": [
+    {"method": "GET", "path": "/context/startup", "javascript": "context.startup", "python": "context_startup"},
+    {"method": "GET", "path": "/context/resume", "javascript": "context.resume", "python": "context_resume"},
+    {"method": "GET", "path": "/context/workspace-profile", "javascript": "context.workspaceProfile", "python": "context_workspace_profile"},
+    {"method": "GET", "path": "/memories", "javascript": "memories.list", "python": "memories_list"},
+    {"method": "POST", "path": "/memories", "javascript": "memories.create", "python": "memories_create"},
+    {"method": "GET", "path": "/memories/search", "javascript": "memories.search", "python": "memories_search"},
+    {"method": "GET", "path": "/memories/batch", "javascript": "memories.getBatch", "python": "memories_get_batch"},
+    {"method": "GET", "path": "/memories/{id}", "javascript": "memories.get", "python": "memories_get"},
+    {"method": "PATCH", "path": "/memories/{id}", "javascript": "memories.update", "python": "memories_update"},
+    {"method": "DELETE", "path": "/memories/{id}", "javascript": "memories.delete", "python": "memories_delete"},
+    {"method": "GET", "path": "/memories/{id}/revisions", "javascript": "memories.getRevisions", "python": "memories_get_revisions"},
+    {"method": "GET", "path": "/subjects", "javascript": "subjects.list", "python": "subjects_list"},
+    {"method": "POST", "path": "/subjects", "javascript": "subjects.create", "python": "subjects_create"},
+    {"method": "GET", "path": "/subjects/{id}", "javascript": "subjects.get", "python": "subjects_get"},
+    {"method": "PATCH", "path": "/subjects/{id}", "javascript": "subjects.update", "python": "subjects_update"},
+    {"method": "POST", "path": "/subjects/{id}/deletion/prepare", "javascript": "subjects.prepareDelete", "python": "subjects_prepare_delete"},
+    {"method": "DELETE", "path": "/subjects/{id}", "javascript": "subjects.delete", "python": "subjects_delete"},
+    {"method": "GET", "path": "/subjects/{id}/memories", "javascript": "subjects.listMemories", "python": "subjects_list_memories"},
+    {"method": "GET", "path": "/memories/{id}/subjects", "javascript": "memories.listSubjects", "python": "memories_list_subjects"},
+    {"method": "POST", "path": "/subjects/{id}/memories", "javascript": "subjects.linkMemory", "python": "subjects_link_memory"},
+    {"method": "DELETE", "path": "/subjects/{id}/memories/{memory_id}", "javascript": "subjects.unlinkMemory", "python": "subjects_unlink_memory"},
+    {"method": "GET", "path": "/subjects/{id}/context", "javascript": "subjects.getContext", "python": "subjects_get_context"},
+    {"method": "GET", "path": "/subjects/{id}/facts", "javascript": "subjects.listFacts", "python": "subjects_list_facts"},
+    {"method": "POST", "path": "/subjects/{id}/fact-suggestions", "javascript": "subjects.suggestFact", "python": "subjects_suggest_fact"},
+    {"method": "GET", "path": "/memories/{id}/context-map", "javascript": "memories.getContextMap", "python": "memories_get_context_map"},
+    {"method": "GET", "path": "/subjects/{id}/memory-insights", "javascript": "subjects.listMemoryInsights", "python": "subjects_list_memory_insights"}
+  ],
+  "memory_revision_list": {
+    "revisions": [
+      {
+        "version": 2,
+        "text": "Travel checklist\nPack a reusable bottle.",
+        "title": "Travel checklist",
+        "body": "Pack a reusable bottle.",
+        "text_unavailable": false,
+        "status": "active",
+        "sensitivity": "private",
+        "type": "note",
+        "tags": ["travel"],
+        "snapshot_at": "2026-01-15T10:00:00Z",
+        "changed_fields": ["text"],
+        "diff_summary": "Text updated",
+        "attachments": []
+      }
+    ]
+  }
+}
