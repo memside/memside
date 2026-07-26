@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.0 - 2026-07-26
+
 - Repaired the JavaScript and Python SDK baseline with valid Memory create
   inputs, explicit deletion confirmation, compatible public and legacy error
   parsing, `Retry-After` exposure, and opt-in deployed read tests.
