@@ -1,6 +1,6 @@
 {
   "name": "memside",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "JavaScript client for Memside AI continuity, portable context, checkpoints, operating rules, User AI Profile, and AI Skills.",
   "type": "module",
   "main": "./index.js",
@@ -14,6 +14,9 @@
   "files": [
     "index.js",
     "index.d.ts",
+    "connected-context-types.d.ts",
+    "subjects.js",
+    "subject-types.d.ts",
     "types.d.ts",
     "README.md",
     "LICENSE.md"

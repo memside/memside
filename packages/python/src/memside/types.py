@@ -153,6 +153,31 @@ class MemoryBatchResult(TypedDict):
     total_body_chars: int
 
 
+class MemoryRevisionRequired(TypedDict):
+    version: int
+    text: str
+    title: str
+    body: str
+    text_unavailable: bool
+    status: str
+    sensitivity: MemorySensitivity
+    type: str
+    changed_fields: List[str]
+    diff_summary: str
+    attachments: List[AttachmentMetadata]
+
+
+class MemoryRevision(MemoryRevisionRequired, total=False):
+    tags: Optional[List[str]]
+    task_state: Optional[TaskState]
+    snapshot_at: Optional[str]
+    operating_rule: Optional[OperatingRule]
+
+
+class MemoryRevisionList(TypedDict):
+    revisions: List[MemoryRevision]
+
+
 class MemoryDeleteResult(TypedDict):
     deleted: Literal[True]
     id: str

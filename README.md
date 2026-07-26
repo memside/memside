@@ -61,6 +61,7 @@ Start here:
 - [Install in VS Code](docs/clients/vscode.md)
 - [Use Memside with API keys](docs/api-keys.md)
 - [Public API reference](docs/public-api.md)
+- [Curated OpenAPI document](openapi.json)
 - [MCP Registry metadata](docs/mcp-registry.md)
 - [Directory metadata](docs/mcp-registry.md#third-party-directory-metadata)
 - [Troubleshooting](docs/troubleshooting.md)
@@ -112,7 +113,9 @@ const startup = await memside.context.startup();
 console.log(startup);
 ```
 
-The JavaScript SDK wraps public Memside API routes for startup context, resume context, workspace profile, and memory operations. See [packages/memside](packages/memside/README.md) for package details.
+The JavaScript SDK wraps public Memside API routes for startup context, resume
+context, workspace profile, Memory operations, and Subject organization. See
+[packages/memside](packages/memside/README.md) for package details.
 
 ## Python SDK
 
@@ -217,6 +220,10 @@ The examples in this repo use public Memside API surfaces only.
 - [Python examples](examples/python/README.md)
 
 The JavaScript and Python examples use normal HTTP requests against public Memside API surfaces.
+
+The machine-readable [OpenAPI document](openapi.json) contains only the
+approved API-key contract. It excludes signed-in application, account,
+administration, billing, and infrastructure operations.
 
 ## Public Repo Scope
 

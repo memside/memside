@@ -132,11 +132,19 @@ export interface MemoryListParams {
   type?: MemoryType;
   sensitivity?: MemorySensitivity;
   tags?: string[];
+  due_before?: string;
+  due_after?: string;
 }
 
 export interface MemorySearchParams extends MemoryListParams {
   q?: string;
   match_any?: boolean;
+  date_from?: string;
+  date_to?: string;
+  has_task_state?: boolean;
+  task_status?: string;
+  task_priority?: string;
+  task_assigned_to?: string;
   parent_id?: string;
 }
 
@@ -177,6 +185,28 @@ export interface MemoryBatchResult {
   success_count: number;
   error_count: number;
   total_body_chars: number;
+}
+
+export interface MemoryRevision {
+  version: number;
+  text: string;
+  title: string;
+  body: string;
+  text_unavailable: boolean;
+  status: string;
+  sensitivity: MemorySensitivity;
+  type: string;
+  tags?: string[] | null;
+  task_state?: TaskState | null;
+  snapshot_at?: string | null;
+  changed_fields: string[];
+  diff_summary: string;
+  operating_rule?: OperatingRule | null;
+  attachments: AttachmentMetadata[];
+}
+
+export interface MemoryRevisionList {
+  revisions: MemoryRevision[];
 }
 
 export interface MemoryDeleteResult {

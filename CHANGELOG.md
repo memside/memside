@@ -2,6 +2,29 @@
 
 ## Unreleased
 
+## 0.3.0 - 2026-07-26
+
+- Added equivalent JavaScript and Python Subject APIs for listing, creating,
+  reading, updating, linking and unlinking memories, bounded Subject Context,
+  and guarded Subject deletion.
+- Added public Subject request and response types plus focused route, query,
+  body, and destructive-confirmation tests.
+- Added eligible Subject Fact reads and source-backed Fact Suggestion creation
+  to both SDKs with caller-provided idempotency keys.
+- Kept direct Fact mutation, suggestion listing, and suggestion review outside
+  the API-key SDK surface.
+- Added bounded Context Map reads and pending-only Memory Insight reads to both
+  SDKs.
+- Kept Insight refresh, review, and undo actions in signed-in application
+  flows rather than the API-key SDK surface.
+- Completed approved route parity with typed, read-only Memory revision
+  history in both SDKs.
+- Added a neutral shared fixture that checks all 26 approved operations map to
+  equivalent JavaScript and Python methods.
+- Added the curated public OpenAPI document, an under-three-minute API
+  quickstart, executable workflow examples, and public guidance for errors,
+  rate limits, privacy, attachments, concurrency, and compatibility.
+
 ## 0.2.0 - 2026-07-26
 
 - Repaired the JavaScript and Python SDK baseline with valid Memory create

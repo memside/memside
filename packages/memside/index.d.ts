@@ -4,6 +4,7 @@ import type {
   MemoryCreateInput,
   MemoryDeleteResult,
   MemoryListParams,
+  MemoryRevisionList,
   MemorySearchParams,
   MemoryUpdateInput,
   ResumeContext,
@@ -13,8 +14,34 @@ import type {
   WorkspaceProfile,
   WorkspaceProfileParams
 } from "./types.js";
+import type {
+  FactSuggestion,
+  FactSuggestionCreateInput,
+  Subject,
+  SubjectContext,
+  SubjectContextOptions,
+  SubjectCreateInput,
+  SubjectDeleteOptions,
+  SubjectDeleteResult,
+  SubjectDeletionPreview,
+  SubjectListParams,
+  SubjectMemory,
+  SubjectMemoryLinkResult,
+  SubjectMemoryListOptions,
+  SubjectMemoryUnlinkResult,
+  SubjectFactList,
+  SubjectFactListOptions,
+  SubjectUpdateInput
+} from "./subject-types.js";
+import type {
+  ContextMap,
+  MemoryInsightList,
+  MemoryInsightListOptions
+} from "./connected-context-types.js";
 
 export * from "./types.js";
+export * from "./subject-types.js";
+export * from "./connected-context-types.js";
 
 export interface MemsideClientOptions {
   apiKey?: string;
@@ -61,6 +88,9 @@ export class MemsideClient {
     list(params?: MemoryListParams): Promise<Memory[]>;
     search(params?: MemorySearchParams): Promise<Memory[]>;
     get(id: string): Promise<Memory>;
+    getRevisions(id: string): Promise<MemoryRevisionList>;
+    getContextMap(id: string): Promise<ContextMap>;
+    listSubjects(id: string): Promise<Subject[]>;
     getBatch(
       ids: string[],
       options?: { includeAttachments?: boolean }
@@ -68,6 +98,46 @@ export class MemsideClient {
     create(memory: MemoryCreateInput): Promise<Memory>;
     update(id: string, patch: MemoryUpdateInput): Promise<Memory>;
     delete(id: string, deleteConfirmation?: string): Promise<MemoryDeleteResult>;
+  };
+
+  subjects: {
+    list(params?: SubjectListParams): Promise<Subject[]>;
+    create(input: SubjectCreateInput): Promise<Subject>;
+    get(subjectId: string): Promise<Subject>;
+    update(subjectId: string, patch: SubjectUpdateInput): Promise<Subject>;
+    listMemories(
+      subjectId: string,
+      options?: SubjectMemoryListOptions
+    ): Promise<SubjectMemory[]>;
+    linkMemory(
+      subjectId: string,
+      memoryId: string
+    ): Promise<SubjectMemoryLinkResult>;
+    unlinkMemory(
+      subjectId: string,
+      memoryId: string
+    ): Promise<SubjectMemoryUnlinkResult>;
+    getContext(
+      subjectId: string,
+      options?: SubjectContextOptions
+    ): Promise<SubjectContext>;
+    listFacts(
+      subjectId: string,
+      options?: SubjectFactListOptions
+    ): Promise<SubjectFactList>;
+    suggestFact(
+      subjectId: string,
+      input: FactSuggestionCreateInput
+    ): Promise<FactSuggestion>;
+    listMemoryInsights(
+      subjectId: string,
+      options?: MemoryInsightListOptions
+    ): Promise<MemoryInsightList>;
+    prepareDelete(subjectId: string): Promise<SubjectDeletionPreview>;
+    delete(
+      subjectId: string,
+      options?: SubjectDeleteOptions
+    ): Promise<SubjectDeleteResult>;
   };
 
   request<T = unknown>(

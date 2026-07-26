@@ -1,3 +1,5 @@
+import { createSubjectsApi } from "./subjects.js";
+
 const DEFAULT_BASE_URL = "https://api.memside.com";
 
 export class MemsideError extends Error {
@@ -47,6 +49,12 @@ export class MemsideClient {
       list: (params) => this.request("GET", "/memories", { query: params }),
       search: (params) => this.request("GET", "/memories/search", { query: params }),
       get: (id) => this.request("GET", `/memories/${encodeURIComponent(id)}`),
+      getRevisions: (id) =>
+        this.request("GET", `/memories/${encodeURIComponent(id)}/revisions`),
+      getContextMap: (id) =>
+        this.request("GET", `/memories/${encodeURIComponent(id)}/context-map`),
+      listSubjects: (id) =>
+        this.request("GET", `/memories/${encodeURIComponent(id)}/subjects`),
       getBatch: (ids, options = {}) =>
         this.request("GET", "/memories/batch", {
           query: {
@@ -65,6 +73,10 @@ export class MemsideClient {
               : { delete_confirmation: deleteConfirmation }
         })
     };
+
+    this.subjects = createSubjectsApi((method, path, requestOptions) =>
+      this.request(method, path, requestOptions)
+    );
   }
 
   async request(method, path, options = {}) {
