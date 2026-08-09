@@ -2,6 +2,8 @@
 
 Python client for Memside AI continuity, portable context, checkpoints, operating rules, User AI Profile, and AI Skills.
 
+Documentation: [Python SDK](https://docs.memside.com/developers/python-sdk/)
+
 ## Install
 
 ```bash

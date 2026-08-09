@@ -2,6 +2,8 @@
 
 JavaScript client for Memside AI continuity, portable context, checkpoints, operating rules, User AI Profile, and AI Skills.
 
+Documentation: [JavaScript SDK](https://docs.memside.com/developers/javascript-sdk/)
+
 ## Install
 
 ```bash

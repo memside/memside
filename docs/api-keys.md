@@ -2,7 +2,9 @@
 
 Memside API keys are for direct API access from scripts, tools, and MCP clients that support bearer-token authentication.
 
-Create an API key from the Memside app in the developer or API key settings area. Copy the key when it is shown, because the full secret is only displayed once.
+Create an API key from **Settings > Developer & API > API keys** in the Memside app. Copy the key when it is shown, because the full secret is only displayed once.
+
+See the [API key documentation](https://docs.memside.com/developers/api-keys/) for the current app steps.
 
 For the shortest setup, follow the
 [under-three-minute direct API check](developer-quickstart.md#2-direct-api-in-under-three-minutes).

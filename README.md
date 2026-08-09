@@ -6,6 +6,8 @@ Use Memside when you want your AI context to survive beyond one chat window. A c
 
 Product site: [https://www.memside.com](https://www.memside.com)
 
+Documentation: [https://docs.memside.com](https://docs.memside.com)
+
 ## Continuity With Less Repeated Prompting
 
 Memside is built to give AI assistants the right context at the right time:
@@ -49,6 +51,7 @@ If your AI tool supports OAuth for MCP, choose OAuth during setup and sign in wi
 
 Start here:
 
+- [Official documentation](https://docs.memside.com/)
 - [Developer quickstart](docs/developer-quickstart.md)
 - [JavaScript SDK](packages/memside/README.md)
 - [Python SDK](packages/python/README.md)

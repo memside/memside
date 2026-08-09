@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Added the official documentation site to the repository and SDK guides.
+- Updated API-key setup navigation to match the current Memside app.
+
 ## 0.3.0 - 2026-07-26
 
 - Added equivalent JavaScript and Python Subject APIs for listing, creating,
