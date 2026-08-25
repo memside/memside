@@ -1,0 +1,157 @@
+name: Publish SDK Packages
+
+on:
+  push:
+    tags:
+      - "sdk-v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Test and build packages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out release source
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          package-manager-cache: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Verify release versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_version="${GITHUB_REF_NAME#sdk-v}"
+          npm_version="$(node -p "require('./packages/memside/package.json').version")"
+          python_version="$(python - <<'PY'
+          import pathlib
+          import tomllib
+
+          data = tomllib.loads(pathlib.Path("packages/python/pyproject.toml").read_text(encoding="utf-8"))
+          print(data["project"]["version"])
+          PY
+          )"
+
+          if [[ "$release_version" != "$npm_version" ]]; then
+            echo "Tag version $release_version does not match npm version $npm_version."
+            exit 1
+          fi
+
+          if [[ "$release_version" != "$python_version" ]]; then
+            echo "Tag version $release_version does not match Python version $python_version."
+            exit 1
+          fi
+
+      - name: Test JavaScript SDK
+        working-directory: packages/memside
+        run: npm test
+
+      - name: Install Python build tools
+        run: python -m pip install --disable-pip-version-check build pytest twine
+
+      - name: Test Python SDK
+        working-directory: packages/python
+        env:
+          PYTHONPATH: src
+        run: python -m pytest -q
+
+      - name: Build npm package
+        working-directory: packages/memside
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/npm-dist"
+          npm pack --pack-destination "$RUNNER_TEMP/npm-dist"
+
+      - name: Build Python packages
+        working-directory: packages/python
+        run: python -m build --outdir "${{ runner.temp }}/pypi-dist"
+
+      - name: Validate Python package metadata
+        run: python -m twine check "${{ runner.temp }}/pypi-dist/"*
+
+      - name: Upload npm package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-package
+          path: ${{ runner.temp }}/npm-dist/*.tgz
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Python package artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-packages
+          path: |
+            ${{ runner.temp }}/pypi-dist/*.whl
+            ${{ runner.temp }}/pypi-dist/*.tar.gz
+          if-no-files-found: error
+          retention-days: 7
+
+  publish-npm:
+    name: Publish npm package
+    needs: build
+    runs-on: ubuntu-latest
+    environment: package-release
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          package-manager-cache: false
+
+      - name: Download npm package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: npm-package
+          path: dist/npm
+
+      - name: Publish to npm
+        shell: bash
+        run: |
+          set -euo pipefail
+          package_path="$(find dist/npm -maxdepth 1 -type f -name '*.tgz' -print -quit)"
+          if [[ -z "$package_path" ]]; then
+            echo "No npm package artifact was found."
+            exit 1
+          fi
+          npm publish "$package_path" --access public
+
+  publish-pypi:
+    name: Publish Python packages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: package-release
+      url: https://pypi.org/project/memside/
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Download Python package artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: python-packages
+          path: dist/pypi
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/pypi/
