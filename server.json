@@ -2,13 +2,13 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.memside/memside",
   "title": "Memside",
-  "description": "AI continuity and memory hub: memories, profiles, rules, context, decisions, tasks, and checkpoints.",
+  "description": "AI continuity and Library Templates: memories, profiles, rules, tasks, and checkpoints.",
   "repository": {
     "url": "https://github.com/memside/memside",
     "source": "github"
   },
   "websiteUrl": "https://www.memside.com",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "remotes": [
     {
       "type": "streamable-http",
@@ -16,7 +16,7 @@
       "headers": [
         {
           "name": "Authorization",
-          "description": "Bearer token using a Memside API key. Use the format: Bearer mem_sk_your_memside_api_key",
+          "description": "Bearer token using a Memside API key. Format: Bearer mem_sk_example_key",
           "isRequired": true,
           "isSecret": true
         }

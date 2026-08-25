@@ -32,13 +32,13 @@ This read-only check requires no local project setup.
 macOS or Linux:
 
 ```bash
-export MEMSIDE_API_KEY="mem_sk_your_key_here"
+export MEMSIDE_API_KEY="mem_sk_example_key"
 ```
 
 Windows PowerShell:
 
 ```powershell
-$env:MEMSIDE_API_KEY = "mem_sk_your_key_here"
+$env:MEMSIDE_API_KEY = "mem_sk_example_key"
 ```
 
 3. Run on macOS or Linux:

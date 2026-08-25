@@ -22,7 +22,7 @@ class SdkParityFixtureTests(unittest.TestCase):
         )
         route_keys = set()
 
-        self.assertEqual(len(FIXTURE["approved_operations"]), 26)
+        self.assertEqual(len(FIXTURE["approved_operations"]), 31)
         for operation in FIXTURE["approved_operations"]:
             route_key = (operation["method"], operation["path"])
             self.assertNotIn(route_key, route_keys)

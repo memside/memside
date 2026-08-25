@@ -6,6 +6,17 @@ from .connected_context_types import (
     MemoryInsightEvidence,
     MemoryInsightList,
 )
+from .library_types import (
+    LibraryAutomationResponse,
+    LibraryDraftFile,
+    LibraryDraftFolder,
+    LibraryDraftWrite,
+    LibraryImportTarget,
+    LibraryLicense,
+    LibraryTemplateRead,
+    LibraryWorkflow,
+    LibraryWorkflowAction,
+)
 from .subject_types import (
     FactSuggestion,
     FactSuggestionCreate,
@@ -64,6 +75,15 @@ __all__ = [
     "MemoryInsight",
     "MemoryInsightEvidence",
     "MemoryInsightList",
+    "LibraryAutomationResponse",
+    "LibraryDraftFile",
+    "LibraryDraftFolder",
+    "LibraryDraftWrite",
+    "LibraryImportTarget",
+    "LibraryLicense",
+    "LibraryTemplateRead",
+    "LibraryWorkflow",
+    "LibraryWorkflowAction",
     "ResumeContext",
     "StartupContext",
     "WorkspaceProfile",

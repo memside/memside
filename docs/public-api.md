@@ -11,7 +11,7 @@ https://api.memside.com
 Authentication:
 
 ```text
-Authorization: Bearer mem_sk_your_key_here
+Authorization: Bearer mem_sk_example_key
 ```
 
 Do not send API keys in query strings.
@@ -95,18 +95,39 @@ These routes are intended for public API-key callers.
 | `POST` | `/subjects/{id}/fact-suggestions` | Propose a source-backed Fact change for user review |
 | `POST` | `/subjects/{id}/deletion/prepare` | Preview Subject deletion without mutation |
 | `DELETE` | `/subjects/{id}` | Delete a Subject with explicit confirmation when allowed |
+| `GET` | `/library/templates` | Search public Library Templates |
+| `GET` | `/library/creator/status` | Read owned Template and publication status |
+| `POST` | `/library/templates/{id}/read` | Read an owned Template draft |
+| `PUT` | `/library/templates/{id}/draft` | Replace an owned Template draft with revision protection |
+| `POST` | `/library/templates/workflow` | Create, submit, publish, unpublish, or republish an owned Template |
 
 Availability can be narrower than the app UI. If a route returns an access error for an API key, use the Memside app or contact support.
 
 ## Approved Workflows
 
-The 26 routes above support five public workflows:
+The 31 routes above support six public workflow areas:
 
 - load startup, resume, or workspace context
 - create, search, read, update, inspect, and explicitly delete memories
 - organize non-secret memories with Subjects and links
 - read eligible Facts and submit source-backed Fact Suggestions
 - read bounded Context Maps and pending Memory Insights
+- discover public Templates and manage creator-owned Template drafts and
+  publication workflows under the applicable connection permissions
+
+## Library Permissions and Concurrency
+
+Library REST API routes require an active API key. Search, creator status, and
+draft reads are read operations. Draft replacement and Template workflow
+actions require an API key with read-write access. The corresponding
+authenticated MCP Library operations also require Library access to be enabled
+for the account.
+
+Draft reads return a revision fingerprint. Draft replacement requires that
+fingerprint so a stale client cannot silently overwrite a newer revision.
+Write and workflow requests also use caller-provided idempotency keys to make
+intentional retries safe. Additional examples and workflow guidance are
+available in [Memside Library and Templates](template-library.md).
 
 ## App-Only Surfaces
 

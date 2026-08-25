@@ -1,6 +1,6 @@
 # Memside Python SDK
 
-Python client for Memside AI continuity, portable context, checkpoints, operating rules, User AI Profile, and AI Skills.
+Python client for Memside AI continuity, portable context, and Library Templates.
 
 Documentation: [Python SDK](https://docs.memside.com/developers/python-sdk/)
 
@@ -15,7 +15,7 @@ pip install memside
 ```python
 from memside import MemsideClient
 
-client = MemsideClient(api_key="mem_sk_your_key_here")
+client = MemsideClient(api_key="mem_sk_example_key")
 
 startup = client.context_startup()
 print(startup)
@@ -33,7 +33,7 @@ memory = client.memories_create(
 )
 ```
 
-Use the current version when updating a Memory you previously read:
+Use the current version when updating a previously read Memory:
 
 ```python
 updated = client.memories_update(
@@ -105,7 +105,7 @@ print(preview["required_confirmation"])
 The SDK does not generate or submit Subject deletion confirmation
 automatically.
 
-Deletion requires the resource-specific confirmation returned by your
+Deletion requires the resource-specific confirmation returned by the calling
 application workflow:
 
 ```python
@@ -115,10 +115,46 @@ client.memories_delete(
 )
 ```
 
-You can also set the API key through the environment:
+Search public Library Templates:
+
+```python
+templates = client.library_search_templates(
+    query="project planning",
+    limit=5,
+)
+```
+
+Read an owned draft before making a revision-protected update:
+
+```python
+draft = client.library_read_template(
+    "template-id",
+    {"file_paths": ["README.md"]},
+)
+
+client.library_write_draft(
+    "template-id",
+    {
+        "expected_fingerprint": draft["content_fingerprint"],
+        "idempotency_key": "planning-template-v1",
+        "files": [
+            {
+                "path": "README.md",
+                "content": "# Project planning\n\nA simple planning checklist.",
+                "target": "reusable_template",
+            }
+        ],
+    },
+)
+```
+
+Template publishing remains a separate workflow action and requires the
+permissions and confirmations defined by the public contract.
+
+The API key can also be set through the environment:
 
 ```bash
-MEMSIDE_API_KEY=mem_sk_your_key_here
+MEMSIDE_API_KEY=mem_sk_example_key
 ```
 
 ## Supported API Areas
@@ -144,6 +180,10 @@ This package wraps public Memside API-key routes:
 - source-backed Fact Suggestions for signed-in-user review
 - pending-only Memory Insight reads
 - guarded Subject deletion preparation and confirmation
+- public Library Template search
+- creator-owned Template status and draft reads
+- revision-protected Template draft replacement
+- reviewed Template publication and visibility workflows
 
 This package does not include private Memside application source, account/session internals, billing internals, admin routes, database details, or MCP server implementation.
 
@@ -154,6 +194,7 @@ This package does not include private Memside application source, account/sessio
 | Context | `context_startup`, `context_resume`, `context_workspace_profile` |
 | Memories | `memories_list`, `memories_search`, `memories_get`, `memories_get_batch`, `memories_get_revisions`, `memories_get_context_map`, `memories_list_subjects`, `memories_create`, `memories_update`, `memories_delete` |
 | Subjects | `subjects_list`, `subjects_create`, `subjects_get`, `subjects_update`, `subjects_list_memories`, `subjects_link_memory`, `subjects_unlink_memory`, `subjects_get_context`, `subjects_list_facts`, `subjects_suggest_fact`, `subjects_list_memory_insights`, `subjects_prepare_delete`, `subjects_delete` |
+| Library | `library_search_templates`, `library_get_creator_status`, `library_read_template`, `library_write_draft`, `library_run_template_workflow` |
 
 See the curated
 [OpenAPI document](https://raw.githubusercontent.com/memside/memside/main/openapi.json)

@@ -1,8 +1,8 @@
 # Memside
 
-Memside is an AI continuity and memory hub for people who work across ChatGPT, Claude, Grok, IDEs, coding agents, and other AI tools that support OAuth, MCP, or API-key connections. It gives you a private place to save reusable context, decisions, operating rules, project notes, and checkpoints so you can move from one AI to another without rebuilding the same background every time.
+Memside is an AI continuity and memory hub for work across ChatGPT, Claude, Grok, IDEs, coding agents, and other AI tools that support OAuth, MCP, or API-key connections. It provides a private place for reusable context, decisions, Operating Rules, project notes, checkpoints, and Library Templates that can move between compatible AI tools.
 
-Use Memside when you want your AI context to survive beyond one chat window. A connected AI tool can retrieve the right memory, continue a project from a checkpoint, follow your saved working preferences, or create new durable context after you approve it. This repository is the public home for Memside integration docs, examples, and support information. It is not a mirror of the private production application source.
+Memside keeps AI context available beyond one chat window. A connected AI tool can retrieve relevant memories, continue a project from a checkpoint, follow saved working preferences, create approved durable context, and work with permission-controlled Library Templates. This repository is the public home for Memside integration documentation, examples, SDKs, and support information. It is not a mirror of the private production application source.
 
 Product site: [https://www.memside.com](https://www.memside.com)
 
@@ -41,13 +41,13 @@ varies by model, provider, prompt style, and workflow. See
 
 ## Connect Memside
 
-Memside supports hosted MCP access for AI tools that can connect to remote MCP servers. MCP gives compatible AI clients a standard way to use Memside as a continuity layer instead of locking your memory into one assistant.
+Memside supports hosted MCP access for AI tools that can connect to remote MCP servers. MCP gives compatible AI clients a standard way to use Memside as a continuity layer instead of locking memory into one assistant.
 
 ```text
 https://api.memside.com/mcp/
 ```
 
-If your AI tool supports OAuth for MCP, choose OAuth during setup and sign in with your Memside account. If your tool supports API-key auth instead, create an API key in Memside and use it as a bearer token.
+For AI tools that support OAuth for MCP, setup continues through Memside sign-in. AI tools that support API-key authentication can use a Memside API key as a bearer token.
 
 Start here:
 
@@ -64,6 +64,7 @@ Start here:
 - [Install in VS Code](docs/clients/vscode.md)
 - [Use Memside with API keys](docs/api-keys.md)
 - [Public API reference](docs/public-api.md)
+- [Memside Library and Templates](docs/template-library.md)
 - [Curated OpenAPI document](openapi.json)
 - [MCP Registry metadata](docs/mcp-registry.md)
 - [Directory metadata](docs/mcp-registry.md#third-party-directory-metadata)
@@ -71,7 +72,7 @@ Start here:
 
 ## Developer Quickstart
 
-Use the path that matches your tool.
+Select the path that matches the client or integration.
 
 | Goal | Use | Start here |
 | --- | --- | --- |
@@ -83,7 +84,7 @@ For a direct API check, create a Memside API key and run:
 
 ```bash
 curl https://api.memside.com/context/startup \
-  -H "Authorization: Bearer mem_sk_your_key_here"
+  -H "Authorization: Bearer mem_sk_example_key"
 ```
 
 For a runnable JavaScript example:
@@ -117,7 +118,8 @@ console.log(startup);
 ```
 
 The JavaScript SDK wraps public Memside API routes for startup context, resume
-context, workspace profile, Memory operations, and Subject organization. See
+context, workspace profile, Memory operations, Subject organization, and
+Library Template workflows. See
 [packages/memside](packages/memside/README.md) for package details.
 
 ## Python SDK
@@ -133,7 +135,7 @@ Basic usage:
 ```python
 from memside import MemsideClient
 
-client = MemsideClient(api_key="mem_sk_your_key_here")
+client = MemsideClient(api_key="mem_sk_example_key")
 
 startup = client.context_startup()
 print(startup)
@@ -149,12 +151,12 @@ Use this hosted MCP server URL in clients that support remote MCP:
 https://api.memside.com/mcp/
 ```
 
-For ChatGPT, Grok, Claude, and other clients that offer OAuth during MCP setup, choose OAuth and sign in with your Memside account.
+For ChatGPT, Grok, Claude, and other clients that offer OAuth during MCP setup, choose OAuth and complete Memside sign-in.
 
 For clients that use bearer headers, create a Memside API key and pass it as:
 
 ```text
-Authorization: Bearer mem_sk_your_memside_api_key
+Authorization: Bearer mem_sk_example_key
 ```
 
 VS Code and GitHub Copilot can use a workspace `.vscode/mcp.json` file:
@@ -166,7 +168,7 @@ VS Code and GitHub Copilot can use a workspace `.vscode/mcp.json` file:
       "type": "http",
       "url": "https://api.memside.com/mcp/",
       "headers": {
-        "Authorization": "Bearer mem_sk_your_memside_api_key"
+        "Authorization": "Bearer mem_sk_example_key"
       }
     }
   }
@@ -195,11 +197,17 @@ See [MCP Registry metadata](docs/mcp-registry.md) for registry and endpoint chec
 
 This repository also includes lightweight third-party directory metadata for Glama, Open Plugins, and Cursor plugin discovery. These files point to the same hosted MCP server URL and do not contain credentials.
 
-## What You Can Do
+## Supported Workflows
 
-With Memside connected, an AI tool can search your saved memories, fetch specific context, create new memories after you approve, update checkpoints, and build compact startup or resume packets. The goal is to keep useful context portable without turning every AI conversation into a long manual setup step.
+With Memside connected, an AI tool can search saved memories, fetch specific context, create approved memories, update checkpoints, and build compact startup or resume packets. The goal is to keep useful context portable without turning every AI conversation into a long manual setup step.
 
-This is useful when you want to move a project between ChatGPT, Claude, Grok, IDEs, coding agents, or other compatible AI clients. Memside can help the next AI understand what you are building, what decisions were already made, what rules it should follow, and what the next step is.
+This supports project movement between ChatGPT, Claude, Grok, IDEs, coding agents, and other compatible AI clients. The next AI can retrieve the project purpose, prior decisions, applicable rules, and current next step.
+
+Memside Library adds reusable Templates for profiles, Operating Rules, AI
+Skills, memories, references, examples, and repeatable workflows. Public
+catalog discovery is read-only. Permission-controlled creator operations can
+search Templates, read owned drafts, replace drafts safely, and manage reviewed
+publication workflows. See [Memside Library and Templates](docs/template-library.md).
 
 Memside keeps the normal product boundary intact. Private user data is scoped to the signed-in user, secret memories are excluded from AI-facing MCP and API-key flows, and destructive actions require stronger confirmation.
 
@@ -213,6 +221,7 @@ Memside is designed around continuity, selective context retrieval, and user con
 - [AI Skills](docs/ai-skills.md) for reusable instruction packs.
 - [Public, private, and secret memories](docs/memory-types.md) for practical data boundaries.
 - [MCP and API-key access](docs/clients/README.md) for connecting multiple AI clients.
+- [Memside Library and Templates](docs/template-library.md) for reusable AI setup and creator workflows.
 
 ## API Examples
 
@@ -242,6 +251,7 @@ This repo contains:
 - public troubleshooting notes
 - security and support information
 - public changelog entries
+- public Library and Template integration guidance
 
 This repo does not contain:
 

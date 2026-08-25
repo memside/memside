@@ -30,7 +30,7 @@ Use this example:
       "type": "http",
       "url": "https://api.memside.com/mcp/",
       "headers": {
-        "Authorization": "Bearer mem_sk_your_memside_api_key"
+        "Authorization": "Bearer mem_sk_example_key"
       }
     }
   }

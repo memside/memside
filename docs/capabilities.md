@@ -6,21 +6,21 @@ The product is centered on reusable context. A memory can be a project note, a d
 
 ## Cross-AI Continuity
 
-Memside helps you carry context between ChatGPT, Claude, Grok, GitHub Copilot, Codex, Cursor, Antigravity, opencode, and other compatible AI tools. The goal is not to replace those tools. The goal is to give them a shared continuity layer so each one can pick up the right context when you ask.
+Memside carries context between ChatGPT, Claude, Grok, GitHub Copilot, Codex, Cursor, Antigravity, opencode, and other compatible AI tools. The goal is not to replace those tools. The goal is to provide a shared continuity layer so each connected tool can retrieve relevant context when requested.
 
-This matters when a project spans multiple assistants. You may use ChatGPT for planning, Claude for writing, Cursor for code, and Codex for implementation. Without a shared memory layer, each tool starts with a partial view. With Memside, you can store the stable context once and let each connected tool retrieve the pieces it needs.
+This matters when a project spans multiple assistants. One tool may support planning, another writing, and another implementation. Without a shared memory layer, each tool starts with a partial view. Memside stores stable context once so each connected tool can retrieve the relevant parts.
 
 ## Memory Search and Fetch
 
 Connected tools can search saved memories and fetch specific memories when more detail is needed. Search is meant to be preview-first, so an AI can scan relevant context without loading every saved item into the conversation.
 
-This is useful when a chat has drifted. Instead of pasting the whole project brief again, you can ask the AI to pull the latest Memside context for the project, checkpoint, rule, or decision. The AI can then get back to the intended track with a smaller and more targeted context load.
+This is useful when a chat has drifted. A connected AI can retrieve the latest Memside context for a project, checkpoint, rule, or decision and return to the intended track with a smaller, targeted context load.
 
 ## Checkpoints and Resume Context
 
 Checkpoints are for handoff and restart. A checkpoint can capture the current goal, key decisions, next action, open questions, and resume instructions.
 
-Resume context helps a connected AI restart work from a known point. This is useful after a long break, a new chat, a tool switch, or a project handoff. Instead of re-explaining the entire project, you can ask for the current resume packet and continue from there.
+Resume context helps a connected AI restart work from a known point after a long break, a new chat, a tool switch, or a project handoff. The current resume packet replaces repeated explanation of the complete project.
 
 ## Operating Rules
 
@@ -30,9 +30,21 @@ They are different from one-off chat instructions. A rule is saved, scoped, and 
 
 ## User AI Profile
 
-The User AI Profile stores personal working preferences. It can describe how you like answers structured, what tradeoffs you care about, what tools you commonly use, and which linked memories are especially important.
+The User AI Profile stores reusable working preferences. It can describe response structure, important tradeoffs, commonly used tools, and linked memories that deserve additional attention.
 
-This helps connected AI tools understand you without needing the same preference prompt in every conversation.
+This helps connected AI tools apply stable preferences without repeating the same profile prompt in every conversation.
+
+## Memside Library and Templates
+
+Memside Library provides reusable Templates for profiles, Operating Rules, AI
+Skills, memories, references, examples, and repeatable workflows. Templates
+offer a reviewed starting point when an effective AI setup is unclear or would
+otherwise require repeated manual configuration.
+
+Public catalog discovery is read-only. Authenticated creator operations support
+search, status checks, protected draft reads, atomic draft replacement, and
+reviewed publication workflows. Library permissions remain separate from
+Memory permissions. See [Memside Library and Templates](template-library.md).
 
 ## AI Skills
 
