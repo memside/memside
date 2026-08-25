@@ -17,7 +17,7 @@ test("shared fixture maps every approved operation to a JavaScript method", () =
   });
   const routeKeys = new Set();
 
-  assert.equal(fixture.approved_operations.length, 26);
+  assert.equal(fixture.approved_operations.length, 31);
   for (const operation of fixture.approved_operations) {
     const routeKey = `${operation.method} ${operation.path}`;
     assert.equal(routeKeys.has(routeKey), false, `duplicate ${routeKey}`);

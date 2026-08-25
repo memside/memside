@@ -38,10 +38,18 @@ import type {
   MemoryInsightList,
   MemoryInsightListOptions
 } from "./connected-context-types.js";
+import type {
+  LibraryAutomationResponse,
+  LibraryDraftWriteInput,
+  LibraryTemplateReadInput,
+  LibraryTemplateSearchParams,
+  LibraryWorkflowInput
+} from "./library-types.js";
 
 export * from "./types.js";
 export * from "./subject-types.js";
 export * from "./connected-context-types.js";
+export * from "./library-types.js";
 
 export interface MemsideClientOptions {
   apiKey?: string;
@@ -138,6 +146,26 @@ export class MemsideClient {
       subjectId: string,
       options?: SubjectDeleteOptions
     ): Promise<SubjectDeleteResult>;
+  };
+
+  library: {
+    searchTemplates(
+      params?: LibraryTemplateSearchParams
+    ): Promise<LibraryAutomationResponse>;
+    getCreatorStatus(
+      templateId?: string
+    ): Promise<LibraryAutomationResponse>;
+    readTemplate(
+      templateId: string,
+      input?: LibraryTemplateReadInput
+    ): Promise<LibraryAutomationResponse>;
+    writeDraft(
+      templateId: string,
+      input: LibraryDraftWriteInput
+    ): Promise<LibraryAutomationResponse>;
+    runTemplateWorkflow(
+      input: LibraryWorkflowInput
+    ): Promise<LibraryAutomationResponse>;
   };
 
   request<T = unknown>(

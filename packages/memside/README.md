@@ -1,6 +1,6 @@
 # Memside JavaScript SDK
 
-JavaScript client for Memside AI continuity, portable context, checkpoints, operating rules, User AI Profile, and AI Skills.
+JavaScript client for Memside AI continuity, portable context, and Library Templates.
 
 Documentation: [JavaScript SDK](https://docs.memside.com/developers/javascript-sdk/)
 
@@ -33,7 +33,7 @@ const memory = await memside.memories.create({
 });
 ```
 
-Use the current version when updating a Memory you previously read:
+Use the current version when updating a previously read Memory:
 
 ```js
 const updated = await memside.memories.update(memory.id, {
@@ -94,7 +94,7 @@ console.log(preview.required_confirmation);
 The SDK does not generate or submit Subject deletion confirmation
 automatically.
 
-Deletion requires the resource-specific confirmation returned by your
+Deletion requires the resource-specific confirmation returned by the calling
 application workflow:
 
 ```js
@@ -103,6 +103,38 @@ await memside.memories.delete(
   `CONFIRM_DELETE_${memory.id}`
 );
 ```
+
+Search public Library Templates:
+
+```js
+const templates = await memside.library.searchTemplates({
+  query: "project planning",
+  limit: 5
+});
+```
+
+Read an owned draft before making a revision-protected update:
+
+```js
+const draft = await memside.library.readTemplate("template-id", {
+  file_paths: ["README.md"]
+});
+
+await memside.library.writeDraft("template-id", {
+  expected_fingerprint: draft.content_fingerprint,
+  idempotency_key: "planning-template-v1",
+  files: [
+    {
+      path: "README.md",
+      content: "# Project planning\n\nA simple planning checklist.",
+      target: "reusable_template"
+    }
+  ]
+});
+```
+
+Template publishing remains a separate workflow action and requires the
+permissions and confirmations defined by the public contract.
 
 ## Supported API Areas
 
@@ -127,6 +159,10 @@ This package wraps public Memside API-key routes:
 - source-backed Fact Suggestions for signed-in-user review
 - pending-only Memory Insight reads
 - guarded Subject deletion preparation and confirmation
+- public Library Template search
+- creator-owned Template status and draft reads
+- revision-protected Template draft replacement
+- reviewed Template publication and visibility workflows
 
 This package does not include private Memside application source, account/session internals, billing internals, admin routes, database details, or MCP server implementation.
 
@@ -137,6 +173,7 @@ This package does not include private Memside application source, account/sessio
 | `context` | `startup`, `resume`, `workspaceProfile` |
 | `memories` | `list`, `search`, `get`, `getBatch`, `getRevisions`, `getContextMap`, `listSubjects`, `create`, `update`, `delete` |
 | `subjects` | `list`, `create`, `get`, `update`, `listMemories`, `linkMemory`, `unlinkMemory`, `getContext`, `listFacts`, `suggestFact`, `listMemoryInsights`, `prepareDelete`, `delete` |
+| `library` | `searchTemplates`, `getCreatorStatus`, `readTemplate`, `writeDraft`, `runTemplateWorkflow` |
 
 See the curated
 [OpenAPI document](https://raw.githubusercontent.com/memside/memside/main/openapi.json)
@@ -147,7 +184,7 @@ for public request and response fields.
 Create a Memside API key in the Memside app and pass it as `apiKey`, or set:
 
 ```bash
-MEMSIDE_API_KEY=mem_sk_your_key_here
+MEMSIDE_API_KEY=mem_sk_example_key
 ```
 
 Do not commit real API keys to source control.

@@ -16,6 +16,11 @@ https://api.memside.com/mcp/
 
 The registry metadata lives in [`server.json`](../server.json). It uses the official server schema and the `remotes` property for a Streamable HTTP server.
 
+The registered Memside MCP includes the core continuity tools and, when the
+separate Library permission is enabled, five tools for Template search,
+creator status, protected draft reads, revision-protected draft replacement,
+and reviewed publication workflows.
+
 ## What `server.json` Does
 
 `server.json` tells MCP registries and downstream MCP marketplaces how to find Memside. It does not contain private source code, secrets, deployment settings, or user data.

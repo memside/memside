@@ -25,7 +25,12 @@
     {"method": "GET", "path": "/subjects/{id}/facts", "javascript": "subjects.listFacts", "python": "subjects_list_facts"},
     {"method": "POST", "path": "/subjects/{id}/fact-suggestions", "javascript": "subjects.suggestFact", "python": "subjects_suggest_fact"},
     {"method": "GET", "path": "/memories/{id}/context-map", "javascript": "memories.getContextMap", "python": "memories_get_context_map"},
-    {"method": "GET", "path": "/subjects/{id}/memory-insights", "javascript": "subjects.listMemoryInsights", "python": "subjects_list_memory_insights"}
+    {"method": "GET", "path": "/subjects/{id}/memory-insights", "javascript": "subjects.listMemoryInsights", "python": "subjects_list_memory_insights"},
+    {"method": "GET", "path": "/library/templates", "javascript": "library.searchTemplates", "python": "library_search_templates"},
+    {"method": "GET", "path": "/library/creator/status", "javascript": "library.getCreatorStatus", "python": "library_get_creator_status"},
+    {"method": "POST", "path": "/library/templates/{id}/read", "javascript": "library.readTemplate", "python": "library_read_template"},
+    {"method": "PUT", "path": "/library/templates/{id}/draft", "javascript": "library.writeDraft", "python": "library_write_draft"},
+    {"method": "POST", "path": "/library/templates/workflow", "javascript": "library.runTemplateWorkflow", "python": "library_run_template_workflow"}
   ],
   "memory_revision_list": {
     "revisions": [

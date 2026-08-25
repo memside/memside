@@ -6,6 +6,12 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 from .connected_context_types import ContextMap, MemoryInsightList
+from .library_types import (
+    LibraryAutomationResponse,
+    LibraryDraftWrite,
+    LibraryTemplateRead,
+    LibraryWorkflow,
+)
 from .subject_types import (
     FactSuggestion,
     FactSuggestionCreate,
@@ -247,6 +253,51 @@ class MemsideClient:
             "DELETE",
             f"/subjects/{subject_id}",
             json_body=body,
+        )
+
+    def library_search_templates(self, **params) -> LibraryAutomationResponse:
+        return self.request("GET", "/library/templates", params=params)
+
+    def library_get_creator_status(
+        self,
+        template_id: Optional[str] = None,
+    ) -> LibraryAutomationResponse:
+        return self.request(
+            "GET",
+            "/library/creator/status",
+            params={"template_id": template_id},
+        )
+
+    def library_read_template(
+        self,
+        template_id: str,
+        request: Optional[LibraryTemplateRead] = None,
+    ) -> LibraryAutomationResponse:
+        return self.request(
+            "POST",
+            f"/library/templates/{template_id}/read",
+            json_body=request or {},
+        )
+
+    def library_write_draft(
+        self,
+        template_id: str,
+        draft: LibraryDraftWrite,
+    ) -> LibraryAutomationResponse:
+        return self.request(
+            "PUT",
+            f"/library/templates/{template_id}/draft",
+            json_body=draft,
+        )
+
+    def library_run_template_workflow(
+        self,
+        workflow: LibraryWorkflow,
+    ) -> LibraryAutomationResponse:
+        return self.request(
+            "POST",
+            "/library/templates/workflow",
+            json_body=workflow,
         )
 
     def request(self, method, path, *, params=None, json_body=None, headers=None):

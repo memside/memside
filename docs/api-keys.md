@@ -14,7 +14,7 @@ For the shortest setup, follow the
 Use the key as a bearer token:
 
 ```bash
-Authorization: Bearer mem_sk_your_key_here
+Authorization: Bearer mem_sk_example_key
 ```
 
 Do not put API keys in URLs. URLs can be logged by browsers, proxies, servers, and support tools.
@@ -74,7 +74,7 @@ Some app-only routes are not available to API-key callers. Account management, s
 
 ```bash
 curl https://api.memside.com/context/startup \
-  -H "Authorization: Bearer mem_sk_your_key_here"
+  -H "Authorization: Bearer mem_sk_example_key"
 ```
 
 See the examples folder for more.

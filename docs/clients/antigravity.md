@@ -24,7 +24,7 @@ Add the Memside server entry and save the file:
         "mcp-remote",
         "https://api.memside.com/mcp/",
         "--header",
-        "Authorization: Bearer mem_sk_your_memside_api_key"
+        "Authorization: Bearer mem_sk_example_key"
       ]
     }
   }

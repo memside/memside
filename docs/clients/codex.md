@@ -20,7 +20,7 @@ codex mcp list
 If your Codex setup asks for authentication details, use:
 
 ```text
-Authorization: Bearer mem_sk_your_memside_api_key
+Authorization: Bearer mem_sk_example_key
 ```
 
 If your Codex version uses a TOML config file instead, add Memside under the MCP server configuration using the current Codex config schema. Common config locations are `~/.codex/config.toml` on macOS or Linux and `%USERPROFILE%\.codex\config.toml` on Windows.
@@ -37,7 +37,7 @@ If your Codex build uses an MCP server form, fill it like this:
   - `mcp-remote`
   - `https://api.memside.com/mcp/`
   - `--header`
-  - `Authorization: Bearer mem_sk_your_memside_api_key`
+  - `Authorization: Bearer mem_sk_example_key`
 - Environment variables: leave empty unless your Codex build specifically requires them
 - Environment variable passthrough: leave empty
 - Working directory on Windows: `C:\Users\<your-user>\.codex`

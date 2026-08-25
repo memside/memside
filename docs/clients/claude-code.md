@@ -13,13 +13,13 @@ https://api.memside.com/mcp/
 Add Memside as a remote HTTP MCP server with a Memside API key bearer header:
 
 ```bash
-claude mcp add --transport http --header "Authorization: Bearer mem_sk_your_memside_api_key" memside https://api.memside.com/mcp/
+claude mcp add --transport http --header "Authorization: Bearer mem_sk_example_key" memside https://api.memside.com/mcp/
 ```
 
 If you want Memside available across all Claude Code projects, add the user scope flag:
 
 ```bash
-claude mcp add --transport http --scope user --header "Authorization: Bearer mem_sk_your_memside_api_key" memside https://api.memside.com/mcp/
+claude mcp add --transport http --scope user --header "Authorization: Bearer mem_sk_example_key" memside https://api.memside.com/mcp/
 ```
 
 After adding the server:

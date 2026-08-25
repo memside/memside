@@ -4,6 +4,16 @@
 
 - Added the official documentation site to the repository and SDK guides.
 - Updated API-key setup navigation to match the current Memside app.
+- Added public guidance for Memside Library discovery, permissions, protected
+  creator drafts, and reviewed Template publication workflows.
+- Added equivalent JavaScript and Python methods and public request types for
+  the five deployed Library API operations.
+- Expanded the shared SDK parity contract and curated OpenAPI document from 26
+  to 31 approved operations.
+- Prepared MCP Registry metadata version `1.0.5` with Library Template
+  discovery while keeping Registry and package versioning independent.
+- Prepared `memside` npm and PyPI package version `0.4.0` for the additive
+  Library SDK surface.
 
 ## 0.3.0 - 2026-07-26
 

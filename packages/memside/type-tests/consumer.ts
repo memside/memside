@@ -9,6 +9,8 @@ import {
   type MemoryDeleteResult,
   type MemoryInsightList,
   type MemoryRevisionList,
+  type LibraryAutomationResponse,
+  type LibraryDraftWriteInput,
   type Subject,
   type SubjectContext,
   type SubjectCreateInput,
@@ -67,6 +69,21 @@ const subjectDeleted: Promise<SubjectDeleteResult> = client.subjects.delete(
   "subject-id",
   { deleteConfirmation: "CONFIRM_DELETE_SUBJECT_subject-id" }
 );
+const templateSearch: Promise<LibraryAutomationResponse> =
+  client.library.searchTemplates({ query: "project planning", limit: 5 });
+const draftInput: LibraryDraftWriteInput = {
+  expected_fingerprint: "a".repeat(64),
+  idempotency_key: "planning-template-v1",
+  files: [
+    {
+      path: "README.md",
+      content: "# Project planning\n\nA simple planning checklist.",
+      target: "reusable_template"
+    }
+  ]
+};
+const draftWrite: Promise<LibraryAutomationResponse> =
+  client.library.writeDraft("template-id", draftInput);
 
 void created;
 void batch;
@@ -81,3 +98,5 @@ void suggestion;
 void insights;
 void deletePreview;
 void subjectDeleted;
+void templateSearch;
+void draftWrite;

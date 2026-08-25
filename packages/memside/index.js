@@ -77,6 +77,29 @@ export class MemsideClient {
     this.subjects = createSubjectsApi((method, path, requestOptions) =>
       this.request(method, path, requestOptions)
     );
+
+    this.library = {
+      searchTemplates: (params) =>
+        this.request("GET", "/library/templates", { query: params }),
+      getCreatorStatus: (templateId) =>
+        this.request("GET", "/library/creator/status", {
+          query: { template_id: templateId }
+        }),
+      readTemplate: (templateId, input = {}) =>
+        this.request(
+          "POST",
+          `/library/templates/${encodeURIComponent(templateId)}/read`,
+          { body: input }
+        ),
+      writeDraft: (templateId, input) =>
+        this.request(
+          "PUT",
+          `/library/templates/${encodeURIComponent(templateId)}/draft`,
+          { body: input }
+        ),
+      runTemplateWorkflow: (input) =>
+        this.request("POST", "/library/templates/workflow", { body: input })
+    };
   }
 
   async request(method, path, options = {}) {

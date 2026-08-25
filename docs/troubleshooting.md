@@ -31,7 +31,7 @@ If the OAuth screen opens inside an embedded browser, try again from a normal br
 Check that the key is sent as a bearer token:
 
 ```bash
-Authorization: Bearer mem_sk_your_key_here
+Authorization: Bearer mem_sk_example_key
 ```
 
 Do not send the key as a query parameter. Also confirm the route supports API-key access, because some routes are session-app only.
