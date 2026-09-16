@@ -233,6 +233,15 @@ suggestion with the same key returns the existing result.
 
 ## Versioning and Compatibility
 
+Account allowances apply across connections. A quota response can include the
+resource, current usage, limit and remaining allowance; daily write limits also
+include a UTC `reset_at` timestamp. Treat a daily quota response as a reason to
+wait until reset instead of repeatedly retrying. Deletion and read access remain
+available when a storage or saved-item allowance is full, subject to normal permissions.
+For MCP memory create/update operations, reuse the same `idempotency_key` and
+payload when retrying the same operation. A completed replay does not consume a
+second daily write. A changed payload requires a new key.
+
 The curated OpenAPI document and SDK packages identify their public contract
 version. Additive methods and fields are introduced without removing existing
 methods. Incompatible changes require an explicit migration path and changelog
